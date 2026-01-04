@@ -6,6 +6,7 @@
 
 ## 🌐 URLs
 
+- **GitHub Repository**: https://github.com/DokPlay/-Website-for-a-transportation-company
 - **Локальная разработка**: https://3000-ixer21c7xgdalr3gap0ul-dfc00ec5.sandbox.novita.ai
 - **API Health Check**: https://3000-ixer21c7xgdalr3gap0ul-dfc00ec5.sandbox.novita.ai/api/health
 - **Production** (после деплоя): будет доступен после `npm run deploy:prod`
@@ -218,19 +219,24 @@ npm run deploy:prod
 ## 🔄 Git команды
 
 ```bash
-# Инициализация (уже выполнено)
-git init
-git add .
-git commit -m "Initial commit"
+# Репозиторий уже подключен к GitHub
+# https://github.com/DokPlay/-Website-for-a-transportation-company
 
 # Добавление изменений
 git add .
 git commit -m "описание изменений"
 
-# Подключение к GitHub (после setup_github_environment)
-git remote add origin https://github.com/username/logistikpro.git
-git push -f origin main  # Первый раз
-git push origin main     # Последующие разы
+# Push в GitHub
+git push origin main
+
+# Pull изменений
+git pull origin main
+
+# Просмотр статуса
+git status
+
+# Просмотр истории
+git log --oneline
 ```
 
 ## 📱 Адаптивность
