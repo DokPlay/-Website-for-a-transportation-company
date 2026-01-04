@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - ЛогистикПро</title>
+    <meta name="description" content="Контакты транспортной компании ЛогистикПро. Телефоны, адрес, email, график работы. Свяжитесь с нами удобным способом.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contacts.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-truck-fast"></i>
+                    <span>ЛогистикПро</span>
+                </a>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Главная</a></li>
+                        <li class="dropdown">
+                            <a href="#">Услуги <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services/cargo.html">Грузоперевозки</a></li>
+                                <li><a href="services/express.html">Экспресс-доставка</a></li>
+                                <li><a href="services/regional.html">Междугородняя доставка</a></li>
+                                <li><a href="services/corporate.html">Корпоративным клиентам</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="calculator.html">Калькулятор</a></li>
+                        <li><a href="contacts.html" class="active">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="tel:+78001234567" class="phone-link">
+                        <i class="fas fa-phone"></i>
+                        <span>8 (800) 123-45-67</span>
+                    </a>
+                    <a href="request.html" class="btn btn-primary">Оставить заявку</a>
+                </div>
+                <button class="burger" id="burger" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Главная</a>
+                <span>/</span>
+                <span class="current">Контакты</span>
+            </div>
+            <h1>Контакты</h1>
+            <p>Свяжитесь с нами удобным для вас способом. Мы всегда рады помочь!</p>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section class="contacts-section">
+        <div class="container">
+            <div class="contacts-grid">
+                <!-- Contact Cards -->
+                <div class="contacts-cards">
+                    <div class="contact-card main-card">
+                        <div class="card-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Центральный офис</h3>
+                            <p class="address">г. Москва, ул. Логистическая, д. 1, офис 100</p>
+                            <div class="card-details">
+                                <div class="detail">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <span>Телефон:</span>
+                                        <a href="tel:+78001234567">8 (800) 123-45-67</a>
+                                        <small>Бесплатно по России</small>
+                                    </div>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div>
+                                        <span>Городской:</span>
+                                        <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                                    </div>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <span>Email:</span>
+                                        <a href="mailto:info@logistikpro.ru">info@logistikpro.ru</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-cards-row">
+                        <div class="contact-card">
+                            <div class="card-icon green">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>WhatsApp</h3>
+                                <p>Напишите нам в мессенджер</p>
+                                <a href="https://wa.me/78001234567" class="card-link" target="_blank">
+                                    Открыть чат <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="card-icon blue">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Telegram</h3>
+                                <p>@logistikpro</p>
+                                <a href="https://t.me/logistikpro" class="card-link" target="_blank">
+                                    Открыть чат <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="work-schedule">
+                        <h3><i class="fas fa-clock"></i> График работы</h3>
+                        <div class="schedule-grid">
+                            <div class="schedule-item">
+                                <span class="day">Понедельник — Пятница</span>
+                                <span class="time">9:00 — 18:00</span>
+                            </div>
+                            <div class="schedule-item">
+                                <span class="day">Суббота</span>
+                                <span class="time">10:00 — 16:00</span>
+                            </div>
+                            <div class="schedule-item">
+                                <span class="day">Воскресенье</span>
+                                <span class="time closed">Выходной</span>
+                            </div>
+                        </div>
+                        <p class="schedule-note">
+                            <i class="fas fa-info-circle"></i>
+                            Экспресс-доставка и диспетчерская служба работают круглосуточно
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="contacts-map">
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3714894747853!2d37.62047671593063!3d55.75362598055629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a50b315e573%3A0xa886bf5a3d9b2e68!2z0JrRgNCw0YHQvdCw0Y8g0L_Qu9C-0YnQsNC00Yw!5e0!3m2!1sru!2sru!4v1635000000000!5m2!1sru!2sru"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="map-overlay">
+                        <div class="map-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>ЛогистикПро</strong>
+                                <span>г. Москва, ул. Логистическая, 1</span>
+                            </div>
+                        </div>
+                        <a href="https://yandex.ru/maps/-/CDUeYQ9z" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-route"></i>
+                            Построить маршрут
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section class="departments-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Отделы компании</h2>
+                <p>Свяжитесь напрямую с нужным отделом для быстрого решения вашего вопроса</p>
+            </div>
+            <div class="departments-grid">
+                <div class="department-card">
+                    <div class="dept-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Клиентский отдел</h3>
+                    <p>Оформление заказов, консультации, отслеживание грузов</p>
+                    <div class="dept-contacts">
+                        <a href="tel:+78001234567">
+                            <i class="fas fa-phone"></i>
+                            8 (800) 123-45-67
+                        </a>
+                        <a href="mailto:orders@logistikpro.ru">
+                            <i class="fas fa-envelope"></i>
+                            orders@logistikpro.ru
+                        </a>
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="dept-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Корпоративный отдел</h3>
+                    <p>Работа с юридическими лицами, договоры, тендеры</p>
+                    <div class="dept-contacts">
+                        <a href="tel:+78001234568">
+                            <i class="fas fa-phone"></i>
+                            8 (800) 123-45-68
+                        </a>
+                        <a href="mailto:b2b@logistikpro.ru">
+                            <i class="fas fa-envelope"></i>
+                            b2b@logistikpro.ru
+                        </a>
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="dept-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Бухгалтерия</h3>
+                    <p>Закрывающие документы, сверки, акты</p>
+                    <div class="dept-contacts">
+                        <a href="tel:+78001234569">
+                            <i class="fas fa-phone"></i>
+                            8 (800) 123-45-69
+                        </a>
+                        <a href="mailto:buh@logistikpro.ru">
+                            <i class="fas fa-envelope"></i>
+                            buh@logistikpro.ru
+                        </a>
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="dept-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Претензионный отдел</h3>
+                    <p>Рассмотрение претензий, возмещение ущерба</p>
+                    <div class="dept-contacts">
+                        <a href="tel:+78001234560">
+                            <i class="fas fa-phone"></i>
+                            8 (800) 123-45-60
+                        </a>
+                        <a href="mailto:claims@logistikpro.ru">
+                            <i class="fas fa-envelope"></i>
+                            claims@logistikpro.ru
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Offices -->
+    <section class="regional-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Филиалы в регионах</h2>
+                <p>Наши терминалы расположены в крупнейших городах России</p>
+            </div>
+            <div class="regional-grid">
+                <div class="regional-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Санкт-Петербург</h4>
+                    <p>ул. Промышленная, 15</p>
+                    <a href="tel:+78121234567">+7 (812) 123-45-67</a>
+                </div>
+                <div class="regional-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Казань</h4>
+                    <p>ул. Складская, 8</p>
+                    <a href="tel:+78431234567">+7 (843) 123-45-67</a>
+                </div>
+                <div class="regional-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Екатеринбург</h4>
+                    <p>ул. Логистиков, 22</p>
+                    <a href="tel:+73431234567">+7 (343) 123-45-67</a>
+                </div>
+                <div class="regional-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Новосибирск</h4>
+                    <p>ул. Транспортная, 5</p>
+                    <a href="tel:+73831234567">+7 (383) 123-45-67</a>
+                </div>
+                <div class="regional-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Ростов-на-Дону</h4>
+                    <p>ул. Грузовая, 12</p>
+                    <a href="tel:+78631234567">+7 (863) 123-45-67</a>
+                </div>
+                <div class="regional-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Краснодар</h4>
+                    <p>ул. Перевозчиков, 3</p>
+                    <a href="tel:+78611234567">+7 (861) 123-45-67</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2>Остались вопросы?</h2>
+                    <p>Оставьте заявку, и наш менеджер свяжется с вами в течение 15 минут</p>
+                </div>
+                <a href="request.html" class="btn btn-white btn-lg">
+                    <i class="fas fa-file-alt"></i>
+                    Оставить заявку
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-truck-fast"></i>
+                        <span>ЛогистикПро</span>
+                    </a>
+                    <p>Надёжный партнёр в сфере грузоперевозок. Более 10 лет успешной работы на рынке логистических услуг.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="services/cargo.html">Грузоперевозки</a></li>
+                        <li><a href="services/express.html">Экспресс-доставка</a></li>
+                        <li><a href="services/regional.html">Междугородняя доставка</a></li>
+                        <li><a href="services/corporate.html">Корпоративным клиентам</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="calculator.html">Калькулятор</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul class="footer-contacts">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+78001234567">8 (800) 123-45-67</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@logistikpro.ru">info@logistikpro.ru</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>г. Москва, ул. Логистическая, 1</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Пн-Пт: 9:00-18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ЛогистикПро. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+    <script src="js/main.js"></script>
+</body>
+</html>

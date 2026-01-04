@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛогистикПро - Надёжные грузоперевозки по всей России</title>
+    <meta name="description" content="Транспортная компания ЛогистикПро - грузоперевозки, экспресс-доставка, междугородняя доставка. Рассчитайте стоимость онлайн!">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-truck-fast"></i>
+                    <span>ЛогистикПро</span>
+                </a>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="active">Главная</a></li>
+                        <li class="dropdown">
+                            <a href="#">Услуги <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services/cargo.html">Грузоперевозки</a></li>
+                                <li><a href="services/express.html">Экспресс-доставка</a></li>
+                                <li><a href="services/regional.html">Междугородняя доставка</a></li>
+                                <li><a href="services/corporate.html">Корпоративным клиентам</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="calculator.html">Калькулятор</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="tel:+78001234567" class="phone-link">
+                        <i class="fas fa-phone"></i>
+                        <span>8 (800) 123-45-67</span>
+                    </a>
+                    <a href="request.html" class="btn btn-primary">Оставить заявку</a>
+                </div>
+                <button class="burger" id="burger" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Надёжные грузоперевозки <span class="highlight">по всей России</span></h1>
+                <p class="hero-subtitle">Доставляем грузы любой сложности точно в срок. Более 10 лет опыта, собственный автопарк и индивидуальный подход к каждому клиенту.</p>
+                <div class="hero-buttons">
+                    <a href="request.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-file-alt"></i>
+                        Оставить заявку
+                    </a>
+                    <a href="calculator.html" class="btn btn-outline btn-lg">
+                        <i class="fas fa-calculator"></i>
+                        Рассчитать стоимость
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">лет на рынке</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5000+</span>
+                        <span class="stat-label">довольных клиентов</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">единиц техники</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">85</span>
+                        <span class="stat-label">регионов доставки</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop" alt="Грузовые перевозки">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Наши услуги</span>
+                <h2>Полный спектр логистических решений</h2>
+                <p>Мы предлагаем комплексные услуги по перевозке грузов для бизнеса и частных клиентов</p>
+            </div>
+            <div class="services-grid">
+                <a href="services/cargo.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Грузоперевозки</h3>
+                    <p>Перевозка грузов любого веса и объёма. Сборные и полные загрузки автотранспорта.</p>
+                    <span class="service-link">Подробнее <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="services/express.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Экспресс-доставка</h3>
+                    <p>Срочная доставка документов и грузов. Гарантия доставки в кратчайшие сроки.</p>
+                    <span class="service-link">Подробнее <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="services/regional.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Междугородняя доставка</h3>
+                    <p>Регулярные рейсы между городами России. Оптимальные маршруты и сроки.</p>
+                    <span class="service-link">Подробнее <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="services/corporate.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Корпоративным клиентам</h3>
+                    <p>Индивидуальные условия для бизнеса. Договорные отношения и гибкая система скидок.</p>
+                    <span class="service-link">Подробнее <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Почему мы</span>
+                <h2>Преимущества работы с нами</h2>
+                <p>Мы делаем всё, чтобы вы остались довольны качеством наших услуг</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Точно в срок</h3>
+                    <p>Гарантируем соблюдение сроков доставки. Отслеживание груза в режиме реального времени.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Страхование грузов</h3>
+                    <p>Полное страхование всех перевозимых грузов. Гарантия сохранности вашего имущества.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-ruble-sign"></i>
+                    </div>
+                    <h3>Прозрачные цены</h3>
+                    <p>Никаких скрытых платежей. Точный расчёт стоимости до начала перевозки.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Поддержка 24/7</h3>
+                    <p>Круглосуточная техническая поддержка и консультации по всем вопросам.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <h3>Собственный автопарк</h3>
+                    <p>Более 150 единиц современной техники. Автомобили разной грузоподъёмности.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Полный документооборот</h3>
+                    <p>Все необходимые документы для юридических лиц. Работа по договору.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator CTA Section -->
+    <section class="calculator-cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Узнайте стоимость доставки за 1 минуту</h2>
+                    <p>Воспользуйтесь нашим онлайн-калькулятором для расчёта стоимости перевозки. Быстро, удобно, без обязательств.</p>
+                    <ul class="cta-features">
+                        <li><i class="fas fa-check"></i> Мгновенный расчёт стоимости</li>
+                        <li><i class="fas fa-check"></i> Учёт всех параметров груза</li>
+                        <li><i class="fas fa-check"></i> Актуальные тарифы</li>
+                    </ul>
+                </div>
+                <div class="cta-action">
+                    <a href="calculator.html" class="btn btn-white btn-lg">
+                        <i class="fas fa-calculator"></i>
+                        Рассчитать стоимость
+                    </a>
+                    <span class="cta-hint">Бесплатно и без регистрации</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Как это работает</span>
+                <h2>4 простых шага к доставке</h2>
+                <p>Оформите заказ быстро и удобно</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Оставьте заявку</h3>
+                    <p>Заполните форму на сайте или позвоните нам по телефону</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Получите расчёт</h3>
+                    <p>Менеджер свяжется с вами и предоставит точную стоимость</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Передайте груз</h3>
+                    <p>Мы заберём груз в удобное для вас время и место</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3>Отслеживайте</h3>
+                    <p>Контролируйте статус доставки в личном кабинете</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Form Section -->
+    <section class="request-section" id="request">
+        <div class="container">
+            <div class="request-wrapper">
+                <div class="request-info">
+                    <h2>Оставьте заявку</h2>
+                    <p>Заполните форму, и наш менеджер свяжется с вами в течение 15 минут для уточнения деталей.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span>Телефон</span>
+                                <a href="tel:+78001234567">8 (800) 123-45-67</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <span>WhatsApp</span>
+                                <a href="https://wa.me/78001234567">Написать</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-telegram"></i>
+                            <div>
+                                <span>Telegram</span>
+                                <a href="https://t.me/logistikpro">@logistikpro</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="request-form" id="requestForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="email@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Комментарий</label>
+                        <textarea id="comment" name="comment" rows="4" placeholder="Опишите ваш груз и пожелания к доставке..."></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agree" required>
+                            <span class="checkmark"></span>
+                            Я согласен с <a href="#">политикой конфиденциальности</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-full">
+                        <i class="fas fa-paper-plane"></i>
+                        Отправить заявку
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-truck-fast"></i>
+                        <span>ЛогистикПро</span>
+                    </a>
+                    <p>Надёжный партнёр в сфере грузоперевозок. Более 10 лет успешной работы на рынке логистических услуг.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="services/cargo.html">Грузоперевозки</a></li>
+                        <li><a href="services/express.html">Экспресс-доставка</a></li>
+                        <li><a href="services/regional.html">Междугородняя доставка</a></li>
+                        <li><a href="services/corporate.html">Корпоративным клиентам</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="calculator.html">Калькулятор</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul class="footer-contacts">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+78001234567">8 (800) 123-45-67</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@logistikpro.ru">info@logistikpro.ru</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>г. Москва, ул. Логистическая, 1</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Пн-Пт: 9:00-18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ЛогистикПро. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

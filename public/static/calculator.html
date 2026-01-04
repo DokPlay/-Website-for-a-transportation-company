@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор доставки - ЛогистикПро</title>
+    <meta name="description" content="Онлайн-калькулятор стоимости доставки грузов. Рассчитайте стоимость перевозки за 1 минуту.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calculator.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-truck-fast"></i>
+                    <span>ЛогистикПро</span>
+                </a>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Главная</a></li>
+                        <li class="dropdown">
+                            <a href="#">Услуги <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services/cargo.html">Грузоперевозки</a></li>
+                                <li><a href="services/express.html">Экспресс-доставка</a></li>
+                                <li><a href="services/regional.html">Междугородняя доставка</a></li>
+                                <li><a href="services/corporate.html">Корпоративным клиентам</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="calculator.html" class="active">Калькулятор</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="tel:+78001234567" class="phone-link">
+                        <i class="fas fa-phone"></i>
+                        <span>8 (800) 123-45-67</span>
+                    </a>
+                    <a href="request.html" class="btn btn-primary">Оставить заявку</a>
+                </div>
+                <button class="burger" id="burger" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Главная</a>
+                <span>/</span>
+                <span class="current">Калькулятор доставки</span>
+            </div>
+            <h1>Калькулятор доставки</h1>
+            <p>Рассчитайте примерную стоимость перевозки вашего груза за 1 минуту</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-wrapper">
+                <div class="calculator-form">
+                    <h2><i class="fas fa-calculator"></i> Расчёт стоимости</h2>
+                    
+                    <form id="calculatorForm">
+                        <!-- Route -->
+                        <div class="form-section">
+                            <h3><span class="step-number">1</span> Маршрут</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cityFrom">Город отправки *</label>
+                                    <select id="cityFrom" name="cityFrom" required>
+                                        <option value="">Выберите город</option>
+                                        <option value="moscow">Москва</option>
+                                        <option value="spb">Санкт-Петербург</option>
+                                        <option value="kazan">Казань</option>
+                                        <option value="ekb">Екатеринбург</option>
+                                        <option value="novosibirsk">Новосибирск</option>
+                                        <option value="nnov">Нижний Новгород</option>
+                                        <option value="samara">Самара</option>
+                                        <option value="rostov">Ростов-на-Дону</option>
+                                        <option value="krasnodar">Краснодар</option>
+                                        <option value="voronezh">Воронеж</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cityTo">Город доставки *</label>
+                                    <select id="cityTo" name="cityTo" required>
+                                        <option value="">Выберите город</option>
+                                        <option value="moscow">Москва</option>
+                                        <option value="spb">Санкт-Петербург</option>
+                                        <option value="kazan">Казань</option>
+                                        <option value="ekb">Екатеринбург</option>
+                                        <option value="novosibirsk">Новосибирск</option>
+                                        <option value="nnov">Нижний Новгород</option>
+                                        <option value="samara">Самара</option>
+                                        <option value="rostov">Ростов-на-Дону</option>
+                                        <option value="krasnodar">Краснодар</option>
+                                        <option value="voronezh">Воронеж</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cargo Details -->
+                        <div class="form-section">
+                            <h3><span class="step-number">2</span> Параметры груза</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="weight">Вес (кг) *</label>
+                                    <input type="number" id="weight" name="weight" min="0.1" step="0.1" required placeholder="100">
+                                </div>
+                                <div class="form-group">
+                                    <label for="volume">Объём (м³)</label>
+                                    <input type="number" id="volume" name="volume" min="0.01" step="0.01" placeholder="1.5">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="length">Длина (см)</label>
+                                    <input type="number" id="length" name="length" min="1" placeholder="100">
+                                </div>
+                                <div class="form-group">
+                                    <label for="width">Ширина (см)</label>
+                                    <input type="number" id="width" name="width" min="1" placeholder="50">
+                                </div>
+                                <div class="form-group">
+                                    <label for="height">Высота (см)</label>
+                                    <input type="number" id="height" name="height" min="1" placeholder="50">
+                                </div>
+                            </div>
+                            <div class="volume-calc" id="volumeCalc">
+                                <span>Расчётный объём: <strong id="calculatedVolume">0</strong> м³</span>
+                            </div>
+                        </div>
+
+                        <!-- Service Type -->
+                        <div class="form-section">
+                            <h3><span class="step-number">3</span> Тип услуги</h3>
+                            <div class="service-options">
+                                <label class="radio-card">
+                                    <input type="radio" name="serviceType" value="standard" checked>
+                                    <div class="radio-content">
+                                        <i class="fas fa-truck"></i>
+                                        <span class="radio-title">Стандартная</span>
+                                        <span class="radio-desc">3-5 дней</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="serviceType" value="express">
+                                    <div class="radio-content">
+                                        <i class="fas fa-bolt"></i>
+                                        <span class="radio-title">Экспресс</span>
+                                        <span class="radio-desc">1-2 дня</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="serviceType" value="economy">
+                                    <div class="radio-content">
+                                        <i class="fas fa-piggy-bank"></i>
+                                        <span class="radio-title">Эконом</span>
+                                        <span class="radio-desc">5-7 дней</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Additional Options -->
+                        <div class="form-section">
+                            <h3><span class="step-number">4</span> Дополнительные услуги</h3>
+                            <div class="checkbox-options">
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="insurance" value="1">
+                                    <div class="checkbox-content">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span class="checkbox-title">Страхование груза</span>
+                                        <span class="checkbox-price">+2% от стоимости</span>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="packaging" value="1">
+                                    <div class="checkbox-content">
+                                        <i class="fas fa-box"></i>
+                                        <span class="checkbox-title">Упаковка</span>
+                                        <span class="checkbox-price">от 500 ₽</span>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="loading" value="1">
+                                    <div class="checkbox-content">
+                                        <i class="fas fa-people-carry"></i>
+                                        <span class="checkbox-title">Погрузка/разгрузка</span>
+                                        <span class="checkbox-price">от 1 000 ₽</span>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="doorToDoor" value="1">
+                                    <div class="checkbox-content">
+                                        <i class="fas fa-home"></i>
+                                        <span class="checkbox-title">От двери до двери</span>
+                                        <span class="checkbox-price">от 800 ₽</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-full">
+                            <i class="fas fa-calculator"></i>
+                            Рассчитать стоимость
+                        </button>
+                    </form>
+                </div>
+
+                <div class="calculator-result" id="calculatorResult">
+                    <div class="result-placeholder">
+                        <i class="fas fa-box-open"></i>
+                        <h3>Заполните форму</h3>
+                        <p>Укажите параметры груза и маршрут для расчёта стоимости доставки</p>
+                    </div>
+
+                    <div class="result-content" id="resultContent" style="display: none;">
+                        <div class="result-header">
+                            <h3>Результат расчёта</h3>
+                            <span class="result-date" id="resultDate"></span>
+                        </div>
+
+                        <div class="result-route">
+                            <div class="route-point">
+                                <i class="fas fa-circle"></i>
+                                <span id="resultFrom"></span>
+                            </div>
+                            <div class="route-line">
+                                <i class="fas fa-arrow-right"></i>
+                                <span id="resultDistance"></span>
+                            </div>
+                            <div class="route-point">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span id="resultTo"></span>
+                            </div>
+                        </div>
+
+                        <div class="result-details">
+                            <div class="detail-row">
+                                <span>Вес груза</span>
+                                <span id="resultWeight"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Объём груза</span>
+                                <span id="resultVolume"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Тип услуги</span>
+                                <span id="resultService"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Срок доставки</span>
+                                <span id="resultDays"></span>
+                            </div>
+                        </div>
+
+                        <div class="result-extras" id="resultExtras" style="display: none;">
+                            <h4>Дополнительные услуги</h4>
+                            <ul id="extrasList"></ul>
+                        </div>
+
+                        <div class="result-price">
+                            <div class="price-row base">
+                                <span>Базовая стоимость</span>
+                                <span id="basePrice"></span>
+                            </div>
+                            <div class="price-row extras" id="extrasPrice" style="display: none;">
+                                <span>Доп. услуги</span>
+                                <span id="extrasPriceValue"></span>
+                            </div>
+                            <div class="price-row total">
+                                <span>Итого</span>
+                                <span id="totalPrice"></span>
+                            </div>
+                        </div>
+
+                        <div class="result-notice">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Это предварительный расчёт. Точную стоимость уточнит менеджер после уточнения деталей заказа.</p>
+                        </div>
+
+                        <div class="result-actions">
+                            <a href="request.html" class="btn btn-primary btn-full">
+                                <i class="fas fa-file-alt"></i>
+                                Оформить заявку
+                            </a>
+                            <button type="button" class="btn btn-outline btn-full" id="askManager">
+                                <i class="fas fa-headset"></i>
+                                Уточнить у менеджера
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="calc-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Как рассчитывается стоимость?</h3>
+                    <p>Стоимость зависит от расстояния между городами, веса и объёма груза, выбранного типа услуги и дополнительных опций.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Что влияет на цену?</h3>
+                    <p>При расчёте учитывается как физический вес, так и объёмный (плотность 250 кг/м³). К оплате принимается бóльшая величина.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Нужна точная цена?</h3>
+                    <p>Для точного расчёта свяжитесь с нашим менеджером по телефону <a href="tel:+78001234567">8 (800) 123-45-67</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-truck-fast"></i>
+                        <span>ЛогистикПро</span>
+                    </a>
+                    <p>Надёжный партнёр в сфере грузоперевозок. Более 10 лет успешной работы на рынке логистических услуг.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="services/cargo.html">Грузоперевозки</a></li>
+                        <li><a href="services/express.html">Экспресс-доставка</a></li>
+                        <li><a href="services/regional.html">Междугородняя доставка</a></li>
+                        <li><a href="services/corporate.html">Корпоративным клиентам</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="calculator.html">Калькулятор</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul class="footer-contacts">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+78001234567">8 (800) 123-45-67</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@logistikpro.ru">info@logistikpro.ru</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>г. Москва, ул. Логистическая, 1</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Пн-Пт: 9:00-18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ЛогистикПро. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+    <script src="js/main.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+</html>
