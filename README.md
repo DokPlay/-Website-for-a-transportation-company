@@ -1,71 +1,73 @@
-# ЛогистикПро - Сайт транспортной компании
+Русская версия: [READMERU.md](READMERU.md)
 
-## 📋 Описание проекта
+# LogisticPro - Transportation Company Website
 
-Современный, адаптивный сайт для транспортной компании ЛогистикПро. Полнофункциональный прототип с калькулятором стоимости доставки, формой заявки и информацией об услугах. Развернут на Cloudflare Pages с использованием Hono framework.
+## 📋 Project Overview
 
-<img width="1492" height="1048" alt="Снимок экрана 2026-01-11 092558" src="https://github.com/user-attachments/assets/bf8efa3f-fe3c-4e34-9276-04cc8c3c6843" />
+Modern, responsive website for the LogisticPro transportation company. A full-featured prototype with a delivery cost calculator, request form, and service information. Deployed on Cloudflare Pages using the Hono framework.
+
+<img width="1492" height="1048" alt="Screenshot 2026-01-11 092558" src="https://github.com/user-attachments/assets/bf8efa3f-fe3c-4e34-9276-04cc8c3c6843" />
 
 
-## ✅ Реализованный функционал
+## ✅ Implemented Features
 
-### 🏠 Главная страница (`/static/index.html`)
-- Hero-секция с ключевой информацией и CTA-кнопками
-- Описание основных услуг компании
-- Преимущества работы с компанией (6 преимуществ)
-- Блок "Как это работает" (4 шага)
-- Статистика компании (10+ лет, 5000+ клиентов)
-- Форма быстрой заявки
-- CTA-блок для перехода к калькулятору
+### 🏠 Home Page (`/static/index.html`)
+- Hero section with key information and CTA buttons
+- Overview of the company’s core services
+- Advantages of working with the company (6 benefits)
+- “How it works” block (4 steps)
+- Company stats (10+ years, 5000+ clients)
+- Quick request form
+- CTA block to jump to the calculator
 
-### 📦 Страницы услуг (`/static/services/`)
-- **Грузоперевозки** (`cargo.html`) — виды перевозок, автопарк, преимущества
-- **Экспресс-доставка** (`express.html`) — варианты срочной доставки, сроки, гарантии
-- **Междугородняя доставка** (`regional.html`) — направления, покрытие по регионам
-- **Корпоративным клиентам** (`corporate.html`) — программа лояльности, документооборот
+### 📦 Service Pages (`/static/services/`)
+- **Cargo transportation** (`cargo.html`) — transport types, fleet, advantages
+- **Express delivery** (`express.html`) — urgent delivery options, timeframes, guarantees
+- **Intercity delivery** (`regional.html`) — directions, regional coverage
+- **Corporate clients** (`corporate.html`) — loyalty program, document workflow
 
-### 🧮 Калькулятор доставки (`/static/calculator.html`)
-- Выбор города отправки и доставки (10 городов)
-- Указание веса и объёма груза
-- Автоматический расчёт объёма по габаритам
-- Выбор типа услуги (Стандарт, Экспресс, Эконом)
-- Дополнительные услуги (страхование, упаковка, погрузка, доставка до двери)
-- Автоматический расчёт стоимости
+### 🧮 Delivery Calculator (`/static/calculator.html`)
+- Select origin and destination cities (10 cities)
+- Specify cargo weight and volume
+- Automatic volume calculation by dimensions
+- Service type selection (Standard, Express, Economy)
+- Additional services (insurance, packaging, loading, door delivery)
+- Automatic cost calculation
 
-### 📝 Форма заявки (`/static/request.html`)
-- Контактная информация (имя, компания, телефон, email)
-- Выбор способа связи (телефон, WhatsApp, Telegram, email)
-- Маршрут доставки (города и адреса)
-- Информация о грузе (тип, вес, объём, ценность)
-- Дополнительные услуги (чекбоксы)
-- Валидация формы
+### 📝 Request Form (`/static/request.html`)
+- Contact information (name, company, phone, email)
+- Preferred contact method (phone, WhatsApp, Telegram, email)
+- Delivery route (cities and addresses)
+- Cargo information (type, weight, volume, value)
+- Additional services (checkboxes)
+- Form validation
 
-### 📍 Контакты (`/static/contacts.html`)
-- Основная контактная информация
-- Ссылки на WhatsApp и Telegram
-- График работы
-- Интерактивная карта (Google Maps)
-- Отделы компании
-- Филиалы в регионах (6 городов)
+### 📍 Contacts (`/static/contacts.html`)
+- Primary contact information
+- Links to WhatsApp and Telegram
+- Working hours
+- Interactive map (Google Maps)
+- Company departments
+- Regional branches (6 cities)
 
 ### 🔌 API Endpoints
-- `GET /` - редирект на главную страницу
-- `GET /api/health` - проверка состояния сервера
-- `GET /static/*` - статические файлы (HTML, CSS, JS)
+- `GET /` - redirect to the home page
+- `GET /api/health` - server health check
+- `GET /static/*` - static files (HTML, CSS, JS)
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 webapp/
 ├── src/
-│   └── index.tsx           # Hono приложение (API endpoints)
+│   └── index.tsx           # Hono app (API endpoints)
 ├── public/
 │   └── static/
-│       ├── index.html      # Главная страница
-│       ├── calculator.html # Калькулятор доставки
-│       ├── request.html    # Форма заявки
-│       ├── contacts.html   # Контакты
-│       ├── css/            # Стили
+│       ├── index.html      # Home page
+│       ├── calculator.html # Delivery calculator
+│       ├── request.html    # Request form
+│       ├── contacts.html   # Contacts
+│       ├── css/            # Styles
 │       │   ├── style.css
 │       │   ├── services.css
 │       │   ├── calculator.css
@@ -75,197 +77,198 @@ webapp/
 │       │   ├── main.js
 │       │   ├── calculator.js
 │       │   └── request.js
-│       └── services/       # Страницы услуг
+│       └── services/       # Service pages
 │           ├── cargo.html
 │           ├── express.html
 │           ├── regional.html
 │           └── corporate.html
-├── dist/                   # Скомпилированные файлы
+├── dist/                   # Compiled files
 │   ├── _worker.js          # Cloudflare Worker
-│   ├── _routes.json        # Маршруты Cloudflare Pages
-│   └── static/             # Копия статических файлов
-├── .git/                   # Git репозиторий
+│   ├── _routes.json        # Cloudflare Pages routes
+│   └── static/             # Copy of static files
+├── .git/                   # Git repository
 ├── .gitignore              # Git ignore
-├── ecosystem.config.cjs    # Конфигурация PM2
-├── wrangler.jsonc          # Конфигурация Cloudflare
-├── vite.config.ts          # Конфигурация Vite
-├── tsconfig.json           # Конфигурация TypeScript
-├── package.json            # Зависимости и скрипты
-└── README.md               # Документация
+├── ecosystem.config.cjs    # PM2 config
+├── wrangler.jsonc          # Cloudflare config
+├── vite.config.ts          # Vite config
+├── tsconfig.json           # TypeScript config
+├── package.json            # Dependencies and scripts
+└── README.md               # Documentation
 ```
 
-## 🎨 Технологии
+## 🎨 Technologies
 
 ### Backend
-- **Hono** v4.6 - легковесный web framework для Cloudflare Workers
-- **TypeScript** v5.6 - типизированный JavaScript
-- **Cloudflare Workers** - edge runtime для бэкенда
-- **Vite** v5.4 - сборщик модулей
+- **Hono** v4.6 - lightweight web framework for Cloudflare Workers
+- **TypeScript** v5.6 - typed JavaScript
+- **Cloudflare Workers** - edge runtime for the backend
+- **Vite** v5.4 - module bundler
 
 ### Frontend
-- **HTML5** - семантическая разметка
-- **CSS3** - современные стили, CSS Variables, Flexbox, Grid
-- **JavaScript (ES6+)** - интерактивность без фреймворков
-- **Font Awesome 6** - иконки (CDN)
-- **Google Fonts (Inter)** - типографика (CDN)
-- **Google Maps** - карта на странице контактов
+- **HTML5** - semantic markup
+- **CSS3** - modern styles, CSS Variables, Flexbox, Grid
+- **JavaScript (ES6+)** - interactivity without frameworks
+- **Font Awesome 6** - icons (CDN)
+- **Google Fonts (Inter)** - typography (CDN)
+- **Google Maps** - map on the contacts page
 
-## 🚀 Локальная разработка
+## 🚀 Local Development
 
-### Установка зависимостей
+### Install dependencies
 ```bash
 cd /home/user/webapp
 npm install
 ```
 
-### Сборка проекта
+### Build the project
 ```bash
 npm run build
-# Создаёт dist/ с _worker.js, статикой и _routes.json
+# Creates dist/ with _worker.js, static files, and _routes.json
 ```
 
-### Запуск локального сервера (PM2)
+### Run the local server (PM2)
 ```bash
-# Очистка порта (если нужно)
+# Clear the port (if needed)
 npm run clean-port
 
-# Запуск с PM2
+# Start with PM2
 pm2 start ecosystem.config.cjs
 
-# Проверка статуса
+# Check status
 pm2 list
 
-# Просмотр логов
+# View logs
 pm2 logs logistikpro --nostream
 
-# Перезапуск
+# Restart
 pm2 restart logistikpro
 
-# Остановка
+# Stop
 pm2 delete logistikpro
 ```
 
-### Тестирование
+### Testing
 ```bash
-# Проверка главной страницы
+# Check the home page
 curl -L http://localhost:3000/
 
-# Проверка API
+# Check the API
 curl http://localhost:3000/api/health
 
-# Проверка статики
+# Check static assets
 curl -L http://localhost:3000/static/calculator.html
 ```
 
-## 📦 Деплой на Cloudflare Pages
+## 📦 Deployment to Cloudflare Pages
 
-### Подготовка
+### Preparation
 
-1. **Настройка Cloudflare API ключа** (обязательно):
+1. **Set up the Cloudflare API key** (required):
 ```bash
-# Вызов инструмента setup_cloudflare_api_key
-# Если не настроен - перейти в Deploy tab для настройки
+# Call the setup_cloudflare_api_key tool
+# If it is not configured, go to the Deploy tab to set it up
 ```
 
-2. **Проверка cloudflare_project_name**:
+2. **Check cloudflare_project_name**:
 ```bash
-# Прочитать существующее имя или использовать logistikpro по умолчанию
-# Если конфликт - добавить номер (logistikpro-2, logistikpro-3)
+# Read the existing name or use logistikpro by default
+# If there is a conflict, add a number (logistikpro-2, logistikpro-3)
 ```
 
-### Деплой
+### Deploy
 
 ```bash
-# Сборка проекта
+# Build the project
 npm run build
 
-# Создание проекта на Cloudflare (первый раз)
+# Create the Cloudflare project (first time)
 npx wrangler pages project create logistikpro \
   --production-branch main \
   --compatibility-date 2024-01-01
 
-# Деплой на Cloudflare Pages
+# Deploy to Cloudflare Pages
 npm run deploy:prod
 
-# Вы получите URL вида:
+# You will get a URL like:
 # Production: https://logistikpro.pages.dev
 # Branch: https://main.logistikpro.pages.dev
 ```
 
-### Обновление после деплоя
+### Update after deployment
 ```bash
-# Сохранить финальное имя проекта в meta_info
+# Save the final project name in meta_info
 # meta_info(action="write", key="cloudflare_project_name", value="logistikpro")
 ```
 
-## 🔗 Функциональные URI
+## 🔗 Functional URIs
 
-| Страница | Путь | Описание |
+| Page | Path | Description |
 |----------|------|----------|
-| Главная | `/` или `/static/index.html` | Главная страница сайта |
-| Калькулятор | `/static/calculator.html` | Онлайн-калькулятор стоимости |
-| Заявка | `/static/request.html` | Расширенная форма заявки |
-| Контакты | `/static/contacts.html` | Контактная информация |
-| API Health | `/api/health` | Проверка состояния API |
-| Грузоперевозки | `/static/services/cargo.html` | Услуга грузоперевозок |
-| Экспресс | `/static/services/express.html` | Экспресс-доставка |
-| Междугородняя | `/static/services/regional.html` | Междугородняя доставка |
-| Корпоративным | `/static/services/corporate.html` | Услуги для бизнеса |
+| Home | `/` or `/static/index.html` | Website home page |
+| Calculator | `/static/calculator.html` | Online cost calculator |
+| Request | `/static/request.html` | Extended request form |
+| Contacts | `/static/contacts.html` | Contact information |
+| API Health | `/api/health` | API health check |
+| Cargo transportation | `/static/services/cargo.html` | Cargo transportation service |
+| Express | `/static/services/express.html` | Express delivery |
+| Intercity | `/static/services/regional.html` | Intercity delivery |
+| Corporate | `/static/services/corporate.html` | Business services |
 
-## 🔄 Git команды
+## 🔄 Git Commands
 
 ```bash
-# Репозиторий уже подключен к GitHub
+# Repository is already connected to GitHub
 # https://github.com/DokPlay/-Website-for-a-transportation-company
 
-# Добавление изменений
+# Add changes
 git add .
-git commit -m "описание изменений"
 
-# Push в GitHub
+git commit -m "describe changes"
+
+# Push to GitHub
 git push origin main
 
-# Pull изменений
+# Pull changes
 git pull origin main
 
-# Просмотр статуса
+# Check status
 git status
 
-# Просмотр истории
+# View history
 git log --oneline
 ```
 
-## 📱 Адаптивность
+## 📱 Responsive Design
 
-- Полная адаптация под мобильные устройства
-- Мобильное меню (бургер)
+- Full adaptation for mobile devices
+- Mobile menu (burger)
 - Breakpoints: 1024px, 768px, 480px
-- Оптимизация форм для мобильных экранов
+- Optimized forms for mobile screens
 
-## 🚀 Рекомендации по дальнейшей разработке
+## 🚀 Recommendations for further development
 
-### Высокий приоритет
-1. **Интеграция с бэкендом** - подключение форм к API для отправки email/сохранения в D1
-2. **Cloudflare D1 Database** - хранение заявок и расчётов
-3. **Email уведомления** - интеграция с SendGrid/Mailgun через API
+### High priority
+1. **Backend integration** - connect forms to APIs for email sending/saving to D1
+2. **Cloudflare D1 Database** - store requests and calculations
+3. **Email notifications** - integrate with SendGrid/Mailgun via API
 
-### Средний приоритет
-4. **Личный кабинет** - авторизация, история заказов
-5. **Страница "О компании"** - история, миссия, команда
-6. **Отслеживание грузов** - поиск по номеру накладной
-7. **Блог/Новости** - полезные статьи
+### Medium priority
+4. **User account** - authentication, order history
+5. **About page** - history, mission, team
+6. **Shipment tracking** - search by waybill number
+7. **Blog/News** - useful articles
 
-### Низкий приоритет
-8. **Многоязычность** - поддержка английского языка
-9. **Тёмная тема** - альтернативная цветовая схема
-10. **PWA** - прогрессивное веб-приложение
+### Low priority
+8. **Multilingual support** - English language support
+9. **Dark theme** - alternative color scheme
+10. **PWA** - progressive web app
 
 
 
-## 📄 Лицензия
+## 📄 License
 
-Прототип создан для демонстрационных целей.
+Prototype created for demonstration purposes.
 
 ---
 
-*Разработано на Cloudflare Pages + Hono для эффективной логистики* 🚚
+*Developed on Cloudflare Pages + Hono for efficient logistics* 🚚
