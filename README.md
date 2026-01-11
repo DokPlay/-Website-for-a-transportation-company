@@ -1,6 +1,7 @@
 Русская версия: [READMERU.md](READMERU.md)
 
 # LogisticPro - Transportation Company Website
+https://929f60f1.website-for-a-transportation-company.pages.dev/static/
 
 ## 📋 Project Overview
 
