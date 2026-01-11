@@ -42,6 +42,14 @@ html {
     scroll-behavior: smooth;
 }
 
+html.i18n-loading body {
+    visibility: hidden;
+}
+
+html.i18n-switching * {
+    transition: none !important;
+}
+
 body {
     font-family: var(--font-family);
     font-size: 16px;
