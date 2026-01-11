@@ -144,10 +144,10 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem(languageStorageKey, nextLanguage);
             applyTranslations(nextLanguage);
         },
-        getLanguage: () => document.documentElement.lang || getStoredLanguage(),
+        getLanguage: () => getStoredLanguage() || document.documentElement.lang || 'ru',
         translations: uiTranslations,
         t: (key) => {
-            const lang = document.documentElement.lang || getStoredLanguage();
+            const lang = getStoredLanguage() || document.documentElement.lang || 'ru';
             return uiTranslations[lang]?.[key] || uiTranslations.ru[key] || key;
         }
     };
