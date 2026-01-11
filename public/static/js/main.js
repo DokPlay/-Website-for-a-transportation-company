@@ -1,6 +1,165 @@
 // ===== Main JavaScript =====
 
 document.addEventListener('DOMContentLoaded', function() {
+    // ===== Language Toggle =====
+    const languageToggle = document.querySelector('[data-lang-toggle]');
+    const supportedLanguages = ['ru', 'en'];
+    const languageStorageKey = 'site-language';
+    const uiTranslations = {
+        ru: {
+            backToTop: 'Наверх',
+            brandTitle: '🚚 ЛогистикПро',
+            brandSubtitle: 'Надёжные грузоперевозки по всей России'
+        },
+        en: {
+            backToTop: 'Back to top',
+            brandTitle: '🚚 LogistikPro',
+            brandSubtitle: 'Reliable freight transport across Russia'
+        }
+    };
+
+    function getStoredLanguage() {
+        const stored = localStorage.getItem(languageStorageKey);
+        return supportedLanguages.includes(stored) ? stored : 'ru';
+    }
+
+    function applyTranslations(language) {
+        const languageCode = supportedLanguages.includes(language) ? language : 'ru';
+        document.documentElement.lang = languageCode;
+
+        const textElements = document.querySelectorAll('[data-i18n]');
+        textElements.forEach((element) => {
+            if (!element.dataset.i18nRu) {
+                element.dataset.i18nRu = element.textContent;
+            }
+            const nextText = languageCode === 'en' ? element.dataset.i18nEn : element.dataset.i18nRu;
+            if (nextText !== undefined) {
+                element.textContent = nextText;
+            }
+        });
+
+        const htmlElements = document.querySelectorAll('[data-i18n-html]');
+        htmlElements.forEach((element) => {
+            if (!element.dataset.i18nHtmlRu) {
+                element.dataset.i18nHtmlRu = element.innerHTML;
+            }
+            const nextHtml = languageCode === 'en' ? element.dataset.i18nHtmlEn : element.dataset.i18nHtmlRu;
+            if (nextHtml !== undefined) {
+                element.innerHTML = nextHtml;
+            }
+        });
+
+        const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholderElements.forEach((element) => {
+            if (!element.dataset.i18nPlaceholderRu) {
+                element.dataset.i18nPlaceholderRu = element.getAttribute('placeholder') || '';
+            }
+            const nextPlaceholder = languageCode === 'en'
+                ? element.dataset.i18nPlaceholderEn
+                : element.dataset.i18nPlaceholderRu;
+            if (nextPlaceholder !== undefined) {
+                element.setAttribute('placeholder', nextPlaceholder);
+            }
+        });
+
+        const valueElements = document.querySelectorAll('[data-i18n-value]');
+        valueElements.forEach((element) => {
+            if (!element.dataset.i18nValueRu) {
+                element.dataset.i18nValueRu = element.getAttribute('value') || '';
+            }
+            const nextValue = languageCode === 'en'
+                ? element.dataset.i18nValueEn
+                : element.dataset.i18nValueRu;
+            if (nextValue !== undefined) {
+                element.setAttribute('value', nextValue);
+            }
+        });
+
+        const ariaElements = document.querySelectorAll('[data-i18n-aria-label]');
+        ariaElements.forEach((element) => {
+            if (!element.dataset.i18nAriaLabelRu) {
+                element.dataset.i18nAriaLabelRu = element.getAttribute('aria-label') || '';
+            }
+            const nextLabel = languageCode === 'en'
+                ? element.dataset.i18nAriaLabelEn
+                : element.dataset.i18nAriaLabelRu;
+            if (nextLabel !== undefined) {
+                element.setAttribute('aria-label', nextLabel);
+            }
+        });
+
+        const altElements = document.querySelectorAll('[data-i18n-alt]');
+        altElements.forEach((element) => {
+            if (!element.dataset.i18nAltRu) {
+                element.dataset.i18nAltRu = element.getAttribute('alt') || '';
+            }
+            const nextAlt = languageCode === 'en' ? element.dataset.i18nAltEn : element.dataset.i18nAltRu;
+            if (nextAlt !== undefined) {
+                element.setAttribute('alt', nextAlt);
+            }
+        });
+
+        const contentElements = document.querySelectorAll('[data-i18n-content]');
+        contentElements.forEach((element) => {
+            if (!element.dataset.i18nContentRu) {
+                element.dataset.i18nContentRu = element.getAttribute('content') || '';
+            }
+            const nextContent = languageCode === 'en'
+                ? element.dataset.i18nContentEn
+                : element.dataset.i18nContentRu;
+            if (nextContent !== undefined) {
+                element.setAttribute('content', nextContent);
+            }
+        });
+
+        const titleElement = document.querySelector('title[data-i18n]');
+        if (titleElement) {
+            if (!titleElement.dataset.i18nRu) {
+                titleElement.dataset.i18nRu = titleElement.textContent;
+            }
+            const nextTitle = languageCode === 'en' ? titleElement.dataset.i18nEn : titleElement.dataset.i18nRu;
+            if (nextTitle !== undefined) {
+                titleElement.textContent = nextTitle;
+            }
+        }
+
+        const backToTopElement = document.querySelector('.back-to-top');
+        if (backToTopElement) {
+            backToTopElement.setAttribute('aria-label', window.siteI18n.t('backToTop'));
+        }
+
+        if (languageToggle) {
+            languageToggle.textContent = languageCode === 'en' ? 'RU' : 'EN';
+        }
+
+        if (window.siteI18n) {
+            window.siteI18n.language = languageCode;
+        }
+    }
+
+    window.siteI18n = {
+        language: getStoredLanguage(),
+        setLanguage: (language) => {
+            const nextLanguage = supportedLanguages.includes(language) ? language : 'ru';
+            localStorage.setItem(languageStorageKey, nextLanguage);
+            applyTranslations(nextLanguage);
+        },
+        getLanguage: () => document.documentElement.lang || getStoredLanguage(),
+        translations: uiTranslations,
+        t: (key) => {
+            const lang = document.documentElement.lang || getStoredLanguage();
+            return uiTranslations[lang]?.[key] || uiTranslations.ru[key] || key;
+        }
+    };
+
+    if (languageToggle) {
+        languageToggle.addEventListener('click', () => {
+            const nextLanguage = window.siteI18n.getLanguage() === 'ru' ? 'en' : 'ru';
+            window.siteI18n.setLanguage(nextLanguage);
+        });
+    }
+
+    applyTranslations(window.siteI18n.getLanguage());
     
     // ===== Mobile Menu =====
     const burger = document.getElementById('burger');
@@ -106,31 +265,22 @@ document.addEventListener('DOMContentLoaded', function() {
     phoneInputs.forEach(input => {
         input.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
-            
-            if (value.length > 0) {
-                if (value[0] === '8') {
-                    value = '7' + value.slice(1);
-                }
-                if (value[0] !== '7') {
-                    value = '7' + value;
-                }
-            }
-            
+
             let formatted = '';
             if (value.length > 0) {
-                formatted = '+7';
+                formatted = '0';
             }
             if (value.length > 1) {
                 formatted += ' (' + value.slice(1, 4);
             }
             if (value.length > 4) {
-                formatted += ') ' + value.slice(4, 7);
+                formatted += ') ' + value.slice(4, 6);
             }
-            if (value.length > 7) {
-                formatted += '-' + value.slice(7, 9);
+            if (value.length > 6) {
+                formatted += '-' + value.slice(6, 8);
             }
-            if (value.length > 9) {
-                formatted += '-' + value.slice(9, 11);
+            if (value.length > 8) {
+                formatted += '-' + value.slice(8, 10);
             }
             
             e.target.value = formatted;
@@ -218,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const backToTopBtn = document.createElement('button');
     backToTopBtn.className = 'back-to-top';
     backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTopBtn.setAttribute('aria-label', 'Наверх');
+    backToTopBtn.setAttribute('aria-label', window.siteI18n.t('backToTop'));
     document.body.appendChild(backToTopBtn);
     
     // Add styles for back to top button
@@ -330,6 +480,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ===== Console Log =====
-    console.log('%c🚚 ЛогистикПро', 'font-size: 24px; font-weight: bold; color: #2563eb;');
-    console.log('%cНадёжные грузоперевозки по всей России', 'font-size: 14px; color: #64748b;');
+    console.log(`%c${window.siteI18n.t('brandTitle')}`, 'font-size: 24px; font-weight: bold; color: #2563eb;');
+    console.log(`%c${window.siteI18n.t('brandSubtitle')}`, 'font-size: 14px; color: #64748b;');
 });
