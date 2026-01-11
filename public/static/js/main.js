@@ -23,103 +23,183 @@ document.addEventListener('DOMContentLoaded', function() {
         return supportedLanguages.includes(stored) ? stored : 'ru';
     }
 
+    const translationTargets = {
+        text: [],
+        html: [],
+        placeholder: [],
+        value: [],
+        ariaLabel: [],
+        alt: [],
+        content: [],
+        title: null
+    };
+
+    function registerTranslationTargets() {
+        const textElements = document.querySelectorAll('[data-i18n]');
+        textElements.forEach((element) => {
+            const ruText = element.dataset.i18nRu || element.textContent;
+            if (!element.dataset.i18nRu) {
+                element.dataset.i18nRu = ruText;
+            }
+            translationTargets.text.push({
+                element,
+                ru: ruText,
+                en: element.dataset.i18nEn
+            });
+        });
+
+        const htmlElements = document.querySelectorAll('[data-i18n-html]');
+        htmlElements.forEach((element) => {
+            const ruHtml = element.dataset.i18nHtmlRu || element.innerHTML;
+            if (!element.dataset.i18nHtmlRu) {
+                element.dataset.i18nHtmlRu = ruHtml;
+            }
+            translationTargets.html.push({
+                element,
+                ru: ruHtml,
+                en: element.dataset.i18nHtmlEn
+            });
+        });
+
+        const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholderElements.forEach((element) => {
+            const ruPlaceholder = element.dataset.i18nPlaceholderRu || element.getAttribute('placeholder') || '';
+            if (!element.dataset.i18nPlaceholderRu) {
+                element.dataset.i18nPlaceholderRu = ruPlaceholder;
+            }
+            translationTargets.placeholder.push({
+                element,
+                ru: ruPlaceholder,
+                en: element.dataset.i18nPlaceholderEn
+            });
+        });
+
+        const valueElements = document.querySelectorAll('[data-i18n-value]');
+        valueElements.forEach((element) => {
+            const ruValue = element.dataset.i18nValueRu || element.getAttribute('value') || '';
+            if (!element.dataset.i18nValueRu) {
+                element.dataset.i18nValueRu = ruValue;
+            }
+            translationTargets.value.push({
+                element,
+                ru: ruValue,
+                en: element.dataset.i18nValueEn
+            });
+        });
+
+        const ariaElements = document.querySelectorAll('[data-i18n-aria-label]');
+        ariaElements.forEach((element) => {
+            const ruLabel = element.dataset.i18nAriaLabelRu || element.getAttribute('aria-label') || '';
+            if (!element.dataset.i18nAriaLabelRu) {
+                element.dataset.i18nAriaLabelRu = ruLabel;
+            }
+            translationTargets.ariaLabel.push({
+                element,
+                ru: ruLabel,
+                en: element.dataset.i18nAriaLabelEn
+            });
+        });
+
+        const altElements = document.querySelectorAll('[data-i18n-alt]');
+        altElements.forEach((element) => {
+            const ruAlt = element.dataset.i18nAltRu || element.getAttribute('alt') || '';
+            if (!element.dataset.i18nAltRu) {
+                element.dataset.i18nAltRu = ruAlt;
+            }
+            translationTargets.alt.push({
+                element,
+                ru: ruAlt,
+                en: element.dataset.i18nAltEn
+            });
+        });
+
+        const contentElements = document.querySelectorAll('[data-i18n-content]');
+        contentElements.forEach((element) => {
+            const ruContent = element.dataset.i18nContentRu || element.getAttribute('content') || '';
+            if (!element.dataset.i18nContentRu) {
+                element.dataset.i18nContentRu = ruContent;
+            }
+            translationTargets.content.push({
+                element,
+                ru: ruContent,
+                en: element.dataset.i18nContentEn
+            });
+        });
+
+        const titleElement = document.querySelector('title[data-i18n]');
+        if (titleElement) {
+            const ruTitle = titleElement.dataset.i18nRu || titleElement.textContent;
+            if (!titleElement.dataset.i18nRu) {
+                titleElement.dataset.i18nRu = ruTitle;
+            }
+            translationTargets.title = {
+                element: titleElement,
+                ru: ruTitle,
+                en: titleElement.dataset.i18nEn
+            };
+        }
+    }
+
     function applyTranslations(language) {
         const languageCode = supportedLanguages.includes(language) ? language : 'ru';
         document.documentElement.lang = languageCode;
+        document.documentElement.classList.add('i18n-switching');
 
-        const textElements = document.querySelectorAll('[data-i18n]');
-        textElements.forEach((element) => {
-            if (!element.dataset.i18nRu) {
-                element.dataset.i18nRu = element.textContent;
-            }
-            const nextText = languageCode === 'en' ? element.dataset.i18nEn : element.dataset.i18nRu;
+        translationTargets.text.forEach(({ element, ru, en }) => {
+            const nextText = languageCode === 'en' ? en : ru;
             if (nextText !== undefined) {
                 element.textContent = nextText;
             }
         });
 
-        const htmlElements = document.querySelectorAll('[data-i18n-html]');
-        htmlElements.forEach((element) => {
-            if (!element.dataset.i18nHtmlRu) {
-                element.dataset.i18nHtmlRu = element.innerHTML;
-            }
-            const nextHtml = languageCode === 'en' ? element.dataset.i18nHtmlEn : element.dataset.i18nHtmlRu;
+        translationTargets.html.forEach(({ element, ru, en }) => {
+            const nextHtml = languageCode === 'en' ? en : ru;
             if (nextHtml !== undefined) {
                 element.innerHTML = nextHtml;
             }
         });
 
-        const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
-        placeholderElements.forEach((element) => {
-            if (!element.dataset.i18nPlaceholderRu) {
-                element.dataset.i18nPlaceholderRu = element.getAttribute('placeholder') || '';
-            }
-            const nextPlaceholder = languageCode === 'en'
-                ? element.dataset.i18nPlaceholderEn
-                : element.dataset.i18nPlaceholderRu;
+        translationTargets.placeholder.forEach(({ element, ru, en }) => {
+            const nextPlaceholder = languageCode === 'en' ? en : ru;
             if (nextPlaceholder !== undefined) {
                 element.setAttribute('placeholder', nextPlaceholder);
             }
         });
 
-        const valueElements = document.querySelectorAll('[data-i18n-value]');
-        valueElements.forEach((element) => {
-            if (!element.dataset.i18nValueRu) {
-                element.dataset.i18nValueRu = element.getAttribute('value') || '';
-            }
-            const nextValue = languageCode === 'en'
-                ? element.dataset.i18nValueEn
-                : element.dataset.i18nValueRu;
+        translationTargets.value.forEach(({ element, ru, en }) => {
+            const nextValue = languageCode === 'en' ? en : ru;
             if (nextValue !== undefined) {
                 element.setAttribute('value', nextValue);
             }
         });
 
-        const ariaElements = document.querySelectorAll('[data-i18n-aria-label]');
-        ariaElements.forEach((element) => {
-            if (!element.dataset.i18nAriaLabelRu) {
-                element.dataset.i18nAriaLabelRu = element.getAttribute('aria-label') || '';
-            }
-            const nextLabel = languageCode === 'en'
-                ? element.dataset.i18nAriaLabelEn
-                : element.dataset.i18nAriaLabelRu;
+        translationTargets.ariaLabel.forEach(({ element, ru, en }) => {
+            const nextLabel = languageCode === 'en' ? en : ru;
             if (nextLabel !== undefined) {
                 element.setAttribute('aria-label', nextLabel);
             }
         });
 
-        const altElements = document.querySelectorAll('[data-i18n-alt]');
-        altElements.forEach((element) => {
-            if (!element.dataset.i18nAltRu) {
-                element.dataset.i18nAltRu = element.getAttribute('alt') || '';
-            }
-            const nextAlt = languageCode === 'en' ? element.dataset.i18nAltEn : element.dataset.i18nAltRu;
+        translationTargets.alt.forEach(({ element, ru, en }) => {
+            const nextAlt = languageCode === 'en' ? en : ru;
             if (nextAlt !== undefined) {
                 element.setAttribute('alt', nextAlt);
             }
         });
 
-        const contentElements = document.querySelectorAll('[data-i18n-content]');
-        contentElements.forEach((element) => {
-            if (!element.dataset.i18nContentRu) {
-                element.dataset.i18nContentRu = element.getAttribute('content') || '';
-            }
-            const nextContent = languageCode === 'en'
-                ? element.dataset.i18nContentEn
-                : element.dataset.i18nContentRu;
+        translationTargets.content.forEach(({ element, ru, en }) => {
+            const nextContent = languageCode === 'en' ? en : ru;
             if (nextContent !== undefined) {
                 element.setAttribute('content', nextContent);
             }
         });
 
-        const titleElement = document.querySelector('title[data-i18n]');
-        if (titleElement) {
-            if (!titleElement.dataset.i18nRu) {
-                titleElement.dataset.i18nRu = titleElement.textContent;
-            }
-            const nextTitle = languageCode === 'en' ? titleElement.dataset.i18nEn : titleElement.dataset.i18nRu;
+        if (translationTargets.title) {
+            const nextTitle = languageCode === 'en'
+                ? translationTargets.title.en
+                : translationTargets.title.ru;
             if (nextTitle !== undefined) {
-                titleElement.textContent = nextTitle;
+                translationTargets.title.element.textContent = nextTitle;
             }
         }
 
@@ -135,6 +215,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.siteI18n) {
             window.siteI18n.language = languageCode;
         }
+
+        document.documentElement.classList.remove('i18n-loading');
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                document.documentElement.classList.remove('i18n-switching');
+            });
+        });
     }
 
     window.siteI18n = {
@@ -151,6 +238,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return uiTranslations[lang]?.[key] || uiTranslations.ru[key] || key;
         }
     };
+
+    registerTranslationTargets();
 
     if (languageToggle) {
         languageToggle.addEventListener('click', () => {

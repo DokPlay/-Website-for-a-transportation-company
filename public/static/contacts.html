@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function() {
+            const storedLanguage = localStorage.getItem('site-language');
+            if (storedLanguage === 'en' || storedLanguage === 'ru') {
+                document.documentElement.lang = storedLanguage;
+            }
+            document.documentElement.classList.add('i18n-loading');
+        })();
+    </script>
     <title data-i18n data-i18n-en="Contacts - LogistikPro">Контакты - ЛогистикПро</title>
     <meta name="description" data-i18n-content data-i18n-content-en="LogistikPro transport company contacts. Phones, address, email, and working hours. Reach us conveniently." content="Контакты транспортной компании ЛогистикПро. Телефоны, адрес, email, график работы. Свяжитесь с нами удобным способом.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
