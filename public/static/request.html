@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оставить заявку - ЛогистикПро</title>
-    <meta name="description" content="Оставьте заявку на грузоперевозку. Мы свяжемся с вами в течение 15 минут для уточнения деталей.">
+    <title data-i18n data-i18n-en="Submit a request - LogistikPro">Оставить заявку - ЛогистикПро</title>
+    <meta name="description" data-i18n-content data-i18n-content-en="Submit a freight request. We will contact you within 15 minutes to clarify the details." content="Оставьте заявку на грузоперевозку. Мы свяжемся с вами в течение 15 минут для уточнения деталей.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -17,32 +17,33 @@
             <div class="header-content">
                 <a href="index.html" class="logo">
                     <i class="fas fa-truck-fast"></i>
-                    <span>ЛогистикПро</span>
+                    <span data-i18n data-i18n-en="LogistikPro">ЛогистикПро</span>
                 </a>
                 <nav class="nav" id="nav">
                     <ul class="nav-list">
-                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="index.html" data-i18n data-i18n-en="Home">Главная</a></li>
                         <li class="dropdown">
-                            <a href="#">Услуги <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" data-i18n-html data-i18n-html-en="Services <i class=&quot;fas fa-chevron-down&quot;></i>">Услуги <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="services/cargo.html">Грузоперевозки</a></li>
-                                <li><a href="services/express.html">Экспресс-доставка</a></li>
-                                <li><a href="services/regional.html">Междугородняя доставка</a></li>
-                                <li><a href="services/corporate.html">Корпоративным клиентам</a></li>
+                                <li><a href="services/cargo.html" data-i18n data-i18n-en="Freight transport">Грузоперевозки</a></li>
+                                <li><a href="services/express.html" data-i18n data-i18n-en="Express delivery">Экспресс-доставка</a></li>
+                                <li><a href="services/regional.html" data-i18n data-i18n-en="Intercity delivery">Междугородняя доставка</a></li>
+                                <li><a href="services/corporate.html" data-i18n data-i18n-en="For corporate clients">Корпоративным клиентам</a></li>
                             </ul>
                         </li>
-                        <li><a href="calculator.html">Калькулятор</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="calculator.html" data-i18n data-i18n-en="Calculator">Калькулятор</a></li>
+                        <li><a href="contacts.html" data-i18n data-i18n-en="Contacts">Контакты</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <a href="tel:+78001234567" class="phone-link">
+                    <a href="tel:0" class="phone-link">
                         <i class="fas fa-phone"></i>
-                        <span>8 (800) 123-45-67</span>
+                        <span data-i18n data-i18n-en="0 (000) 00-00-00">0 (000) 00-00-00</span>
                     </a>
-                    <a href="request.html" class="btn btn-primary">Оставить заявку</a>
+                    <a href="request.html" class="btn btn-primary" data-i18n data-i18n-en="Submit a request">Оставить заявку</a>
+                    <button class="lang-toggle" type="button" data-lang-toggle>EN</button>
                 </div>
-                <button class="burger" id="burger" aria-label="Меню">
+                <button class="burger" id="burger" aria-label="Меню" data-i18n-aria-label data-i18n-aria-label-en="Menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -55,12 +56,12 @@
     <section class="page-header">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.html">Главная</a>
+                <a href="index.html" data-i18n data-i18n-en="Home">Главная</a>
                 <span>/</span>
-                <span class="current">Оставить заявку</span>
+                <span class="current" data-i18n data-i18n-en="Submit a request">Оставить заявку</span>
             </div>
-            <h1>Оставить заявку</h1>
-            <p>Заполните форму, и наш менеджер свяжется с вами в течение 15 минут</p>
+            <h1 data-i18n data-i18n-en="Submit a request">Оставить заявку</h1>
+            <p data-i18n data-i18n-en="Fill out the form and our manager will contact you within 15 minutes">Заполните форму, и наш менеджер свяжется с вами в течение 15 минут</p>
         </div>
     </section>
 
@@ -72,45 +73,45 @@
                     <form class="detailed-form" id="detailedRequestForm">
                         <!-- Contact Info -->
                         <div class="form-block">
-                            <h3><i class="fas fa-user"></i> Контактная информация</h3>
+                            <h3 data-i18n-html data-i18n-html-en="<i class=&quot;fas fa-user&quot;></i> Contact information"><i class="fas fa-user"></i> Контактная информация</h3>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="name">Ваше имя *</label>
-                                    <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                                    <label for="name" data-i18n data-i18n-en="Your name *">Ваше имя *</label>
+                                    <input type="text" id="name" name="name" required placeholder="Иван Иванов" data-i18n-placeholder data-i18n-placeholder-en="John Smith">
                                 </div>
                                 <div class="form-group">
-                                    <label for="company">Компания</label>
-                                    <input type="text" id="company" name="company" placeholder="ООО «Компания»">
+                                    <label for="company" data-i18n data-i18n-en="Company">Компания</label>
+                                    <input type="text" id="company" name="company" placeholder="ООО «Компания»" data-i18n-placeholder data-i18n-placeholder-en="Company LLC">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="phone">Телефон *</label>
-                                    <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67">
+                                    <label for="phone" data-i18n data-i18n-en="Phone *">Телефон *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="0 (000) 00-00-00" data-i18n-placeholder data-i18n-placeholder-en="0 (000) 00-00-00">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" placeholder="email@example.com">
+                                    <label for="email" data-i18n data-i18n-en="Email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="email@example.com" data-i18n-placeholder data-i18n-placeholder-en="email@example.com">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Предпочтительный способ связи</label>
+                                <label data-i18n data-i18n-en="Preferred contact method">Предпочтительный способ связи</label>
                                 <div class="contact-method-options">
                                     <label class="method-option">
                                         <input type="radio" name="contactMethod" value="phone" checked>
-                                        <span><i class="fas fa-phone"></i> Телефон</span>
+                                        <span data-i18n-html data-i18n-html-en="<i class=&quot;fas fa-phone&quot;></i> Phone"><i class="fas fa-phone"></i> Телефон</span>
                                     </label>
                                     <label class="method-option">
                                         <input type="radio" name="contactMethod" value="whatsapp">
-                                        <span><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                                        <span data-i18n-html data-i18n-html-en="<i class=&quot;fab fa-whatsapp&quot;></i> WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</span>
                                     </label>
                                     <label class="method-option">
                                         <input type="radio" name="contactMethod" value="telegram">
-                                        <span><i class="fab fa-telegram"></i> Telegram</span>
+                                        <span data-i18n-html data-i18n-html-en="<i class=&quot;fab fa-telegram&quot;></i> Telegram"><i class="fab fa-telegram"></i> Telegram</span>
                                     </label>
                                     <label class="method-option">
                                         <input type="radio" name="contactMethod" value="email">
-                                        <span><i class="fas fa-envelope"></i> Email</span>
+                                        <span data-i18n-html data-i18n-html-en="<i class=&quot;fas fa-envelope&quot;></i> Email"><i class="fas fa-envelope"></i> Email</span>
                                     </label>
                                 </div>
                             </div>
@@ -118,100 +119,100 @@
 
                         <!-- Route Info -->
                         <div class="form-block">
-                            <h3><i class="fas fa-route"></i> Маршрут доставки</h3>
+                            <h3 data-i18n-html data-i18n-html-en="<i class=&quot;fas fa-route&quot;></i> Delivery route"><i class="fas fa-route"></i> Маршрут доставки</h3>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="cityFrom">Город отправки</label>
-                                    <input type="text" id="cityFrom" name="cityFrom" placeholder="Москва">
+                                    <label for="cityFrom" data-i18n data-i18n-en="Origin city">Город отправки</label>
+                                    <input type="text" id="cityFrom" name="cityFrom" placeholder="Москва" data-i18n-placeholder data-i18n-placeholder-en="Moscow">
                                 </div>
                                 <div class="form-group">
-                                    <label for="cityTo">Город доставки</label>
-                                    <input type="text" id="cityTo" name="cityTo" placeholder="Санкт-Петербург">
+                                    <label for="cityTo" data-i18n data-i18n-en="Destination city">Город доставки</label>
+                                    <input type="text" id="cityTo" name="cityTo" placeholder="Санкт-Петербург" data-i18n-placeholder data-i18n-placeholder-en="Saint Petersburg">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="addressFrom">Адрес отправки</label>
-                                    <input type="text" id="addressFrom" name="addressFrom" placeholder="Улица, дом, офис">
+                                    <label for="addressFrom" data-i18n data-i18n-en="Pickup address">Адрес отправки</label>
+                                    <input type="text" id="addressFrom" name="addressFrom" placeholder="Улица, дом, офис" data-i18n-placeholder data-i18n-placeholder-en="Street, building, office">
                                 </div>
                                 <div class="form-group">
-                                    <label for="addressTo">Адрес доставки</label>
-                                    <input type="text" id="addressTo" name="addressTo" placeholder="Улица, дом, офис">
+                                    <label for="addressTo" data-i18n data-i18n-en="Delivery address">Адрес доставки</label>
+                                    <input type="text" id="addressTo" name="addressTo" placeholder="Улица, дом, офис" data-i18n-placeholder data-i18n-placeholder-en="Street, building, office">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Cargo Info -->
                         <div class="form-block">
-                            <h3><i class="fas fa-box"></i> Информация о грузе</h3>
+                            <h3 data-i18n-html data-i18n-html-en="<i class=&quot;fas fa-box&quot;></i> Cargo information"><i class="fas fa-box"></i> Информация о грузе</h3>
                             <div class="form-group">
-                                <label for="cargoType">Тип груза</label>
+                                <label for="cargoType" data-i18n data-i18n-en="Cargo type">Тип груза</label>
                                 <select id="cargoType" name="cargoType">
-                                    <option value="">Выберите тип груза</option>
-                                    <option value="documents">Документы</option>
-                                    <option value="parcels">Посылки/коробки</option>
-                                    <option value="pallets">Паллеты</option>
-                                    <option value="equipment">Оборудование</option>
-                                    <option value="furniture">Мебель</option>
-                                    <option value="fragile">Хрупкие грузы</option>
-                                    <option value="oversized">Негабаритные грузы</option>
-                                    <option value="other">Другое</option>
+                                    <option value="" data-i18n data-i18n-en="Select cargo type">Выберите тип груза</option>
+                                    <option value="documents" data-i18n data-i18n-en="Documents">Документы</option>
+                                    <option value="parcels" data-i18n data-i18n-en="Parcels/boxes">Посылки/коробки</option>
+                                    <option value="pallets" data-i18n data-i18n-en="Pallets">Паллеты</option>
+                                    <option value="equipment" data-i18n data-i18n-en="Equipment">Оборудование</option>
+                                    <option value="furniture" data-i18n data-i18n-en="Furniture">Мебель</option>
+                                    <option value="fragile" data-i18n data-i18n-en="Fragile cargo">Хрупкие грузы</option>
+                                    <option value="oversized" data-i18n data-i18n-en="Oversized cargo">Негабаритные грузы</option>
+                                    <option value="other" data-i18n data-i18n-en="Other">Другое</option>
                                 </select>
                             </div>
                             <div class="form-row three-cols">
                                 <div class="form-group">
-                                    <label for="weight">Вес (кг)</label>
-                                    <input type="number" id="weight" name="weight" min="0" placeholder="100">
+                                    <label for="weight" data-i18n data-i18n-en="Weight (kg)">Вес (кг)</label>
+                                    <input type="number" id="weight" name="weight" min="0" placeholder="100" data-i18n-placeholder data-i18n-placeholder-en="100">
                                 </div>
                                 <div class="form-group">
-                                    <label for="volume">Объём (м³)</label>
-                                    <input type="number" id="volume" name="volume" min="0" step="0.01" placeholder="1.5">
+                                    <label for="volume" data-i18n data-i18n-en="Volume (m³)">Объём (м³)</label>
+                                    <input type="number" id="volume" name="volume" min="0" step="0.01" placeholder="1.5" data-i18n-placeholder data-i18n-placeholder-en="1.5">
                                 </div>
                                 <div class="form-group">
-                                    <label for="places">Кол-во мест</label>
-                                    <input type="number" id="places" name="places" min="1" placeholder="1">
+                                    <label for="places" data-i18n data-i18n-en="Number of pieces">Кол-во мест</label>
+                                    <input type="number" id="places" name="places" min="1" placeholder="1" data-i18n-placeholder data-i18n-placeholder-en="1">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="cargoValue">Объявленная ценность (₽)</label>
-                                <input type="number" id="cargoValue" name="cargoValue" min="0" placeholder="10000">
+                                <label for="cargoValue" data-i18n data-i18n-en="Declared value (₽)">Объявленная ценность (₽)</label>
+                                <input type="number" id="cargoValue" name="cargoValue" min="0" placeholder="10000" data-i18n-placeholder data-i18n-placeholder-en="10000">
                             </div>
                         </div>
 
                         <!-- Service Options -->
                         <div class="form-block">
-                            <h3><i class="fas fa-cog"></i> Дополнительные услуги</h3>
+                            <h3 data-i18n-html data-i18n-html-en="<i class=&quot;fas fa-cog&quot;></i> Additional services"><i class="fas fa-cog"></i> Дополнительные услуги</h3>
                             <div class="service-checkboxes">
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services[]" value="express">
                                     <span class="checkbox-box"></span>
                                     <span class="checkbox-text">
-                                        <strong>Экспресс-доставка</strong>
-                                        <small>Срочная доставка в кратчайшие сроки</small>
+                                        <strong data-i18n data-i18n-en="Express delivery">Экспресс-доставка</strong>
+                                        <small data-i18n data-i18n-en="Urgent delivery in the shortest possible time">Срочная доставка в кратчайшие сроки</small>
                                     </span>
                                 </label>
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services[]" value="insurance">
                                     <span class="checkbox-box"></span>
                                     <span class="checkbox-text">
-                                        <strong>Страхование груза</strong>
-                                        <small>Защита от повреждений и потерь</small>
+                                        <strong data-i18n data-i18n-en="Cargo insurance">Страхование груза</strong>
+                                        <small data-i18n data-i18n-en="Protection against damage and loss">Защита от повреждений и потерь</small>
                                     </span>
                                 </label>
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services[]" value="packaging">
                                     <span class="checkbox-box"></span>
                                     <span class="checkbox-text">
-                                        <strong>Упаковка</strong>
-                                        <small>Профессиональная упаковка груза</small>
+                                        <strong data-i18n data-i18n-en="Packaging">Упаковка</strong>
+                                        <small data-i18n data-i18n-en="Professional cargo packaging">Профессиональная упаковка груза</small>
                                     </span>
                                 </label>
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services[]" value="loading">
                                     <span class="checkbox-box"></span>
                                     <span class="checkbox-text">
-                                        <strong>Погрузка/разгрузка</strong>
-                                        <small>Помощь грузчиков</small>
+                                        <strong data-i18n data-i18n-en="Loading/unloading">Погрузка/разгрузка</strong>
+                                        <small data-i18n data-i18n-en="Loader assistance">Помощь грузчиков</small>
                                     </span>
                                 </label>
                             </div>
@@ -219,9 +220,9 @@
 
                         <!-- Comment -->
                         <div class="form-block">
-                            <h3><i class="fas fa-comment"></i> Комментарий к заявке</h3>
+                            <h3 data-i18n-html data-i18n-html-en="<i class=&quot;fas fa-comment&quot;></i> Request comment"><i class="fas fa-comment"></i> Комментарий к заявке</h3>
                             <div class="form-group">
-                                <textarea id="comment" name="comment" rows="5" placeholder="Опишите детали заказа, особые требования к перевозке, удобное время для связи..."></textarea>
+                                <textarea id="comment" name="comment" rows="5" placeholder="Опишите детали заказа, особые требования к перевозке, удобное время для связи..." data-i18n-placeholder data-i18n-placeholder-en="Describe order details, special delivery requirements, preferred contact time..."></textarea>
                             </div>
                         </div>
 
@@ -230,7 +231,7 @@
                             <label class="agree-checkbox">
                                 <input type="checkbox" name="agree" required>
                                 <span class="checkbox-box"></span>
-                                <span>Я согласен с <a href="#" target="_blank">политикой конфиденциальности</a> и даю согласие на обработку персональных данных</span>
+                                <span data-i18n-html data-i18n-html-en="I agree with the <a href=&quot;#&quot; target=&quot;_blank&quot;>privacy policy</a> and consent to personal data processing">Я согласен с <a href="#" target="_blank">политикой конфиденциальности</a> и даю согласие на обработку персональных данных</span>
                             </label>
                         </div>
 
@@ -238,9 +239,9 @@
                         <div class="form-submit">
                             <button type="submit" class="btn btn-primary btn-lg">
                                 <i class="fas fa-paper-plane"></i>
-                                Отправить заявку
+                                <span data-i18n data-i18n-en="Send request">Отправить заявку</span>
                             </button>
-                            <p class="submit-hint">Мы свяжемся с вами в течение 15 минут в рабочее время</p>
+                            <p class="submit-hint" data-i18n data-i18n-en="We will contact you within 15 minutes during business hours">Мы свяжемся с вами в течение 15 минут в рабочее время</p>
                         </div>
                     </form>
 
@@ -249,45 +250,45 @@
                         <div class="success-icon">
                             <i class="fas fa-check-circle"></i>
                         </div>
-                        <h2>Заявка успешно отправлена!</h2>
-                        <p>Спасибо за обращение. Наш менеджер свяжется с вами в ближайшее время.</p>
+                        <h2 data-i18n data-i18n-en="Request submitted successfully!">Заявка успешно отправлена!</h2>
+                        <p data-i18n data-i18n-en="Thank you for your request. Our manager will contact you shortly.">Спасибо за обращение. Наш менеджер свяжется с вами в ближайшее время.</p>
                         <div class="success-actions">
-                            <a href="index.html" class="btn btn-primary">На главную</a>
-                            <a href="calculator.html" class="btn btn-outline">Калькулятор</a>
+                            <a href="index.html" class="btn btn-primary" data-i18n data-i18n-en="Home">На главную</a>
+                            <a href="calculator.html" class="btn btn-outline" data-i18n data-i18n-en="Calculator">Калькулятор</a>
                         </div>
                     </div>
                 </div>
 
                 <aside class="request-sidebar">
                     <div class="sidebar-card quick-contact">
-                        <h3>Быстрая связь</h3>
-                        <p>Предпочитаете позвонить? Свяжитесь с нами удобным способом:</p>
+                        <h3 data-i18n data-i18n-en="Quick contact">Быстрая связь</h3>
+                        <p data-i18n data-i18n-en="Prefer to call? Reach us in the way that suits you:">Предпочитаете позвонить? Свяжитесь с нами удобным способом:</p>
                         <div class="quick-links">
-                            <a href="tel:+78001234567" class="quick-link phone">
+                            <a href="tel:0" class="quick-link phone">
                                 <i class="fas fa-phone"></i>
                                 <div>
-                                    <span>Позвонить</span>
-                                    <strong>8 (800) 123-45-67</strong>
+                                    <span data-i18n data-i18n-en="Call">Позвонить</span>
+                                    <strong>0 (000) 00-00-00</strong>
                                 </div>
                             </a>
-                            <a href="https://wa.me/78001234567" class="quick-link whatsapp" target="_blank">
+                            <div class="quick-link whatsapp">
                                 <i class="fab fa-whatsapp"></i>
                                 <div>
-                                    <span>Написать</span>
-                                    <strong>WhatsApp</strong>
+                                    <span data-i18n data-i18n-en="Message">Написать</span>
+                                    <strong data-i18n data-i18n-en="WhatsApp">WhatsApp</strong>
                                 </div>
-                            </a>
-                            <a href="https://t.me/logistikpro" class="quick-link telegram" target="_blank">
+                            </div>
+                            <div class="quick-link telegram">
                                 <i class="fab fa-telegram"></i>
                                 <div>
-                                    <span>Написать</span>
-                                    <strong>Telegram</strong>
+                                    <span data-i18n data-i18n-en="Message">Написать</span>
+                                    <strong data-i18n data-i18n-en="Telegram">Telegram</strong>
                                 </div>
-                            </a>
+                            </div>
                             <a href="mailto:info@logistikpro.ru" class="quick-link email">
                                 <i class="fas fa-envelope"></i>
                                 <div>
-                                    <span>Email</span>
+                                    <span data-i18n data-i18n-en="Email">Email</span>
                                     <strong>info@logistikpro.ru</strong>
                                 </div>
                             </a>
@@ -295,36 +296,36 @@
                     </div>
 
                     <div class="sidebar-card">
-                        <h3>Нужна помощь?</h3>
-                        <p>Наши менеджеры помогут оформить заявку и ответят на все вопросы</p>
+                        <h3 data-i18n data-i18n-en="Need help?">Нужна помощь?</h3>
+                        <p data-i18n data-i18n-en="Our managers will help submit the request and answer all questions">Наши менеджеры помогут оформить заявку и ответят на все вопросы</p>
                         <div class="work-hours">
                             <i class="fas fa-clock"></i>
                             <div>
-                                <span>Режим работы</span>
-                                <strong>Пн-Пт: 9:00 - 18:00</strong>
-                                <strong>Сб: 10:00 - 16:00</strong>
+                                <span data-i18n data-i18n-en="Working hours">Режим работы</span>
+                                <strong data-i18n data-i18n-en="Mon-Fri: 9:00 - 18:00">Пн-Пт: 9:00 - 18:00</strong>
+                                <strong data-i18n data-i18n-en="Sat: 10:00 - 16:00">Сб: 10:00 - 16:00</strong>
                             </div>
                         </div>
                     </div>
 
                     <div class="sidebar-card guarantee-card">
-                        <h3>Наши гарантии</h3>
+                        <h3 data-i18n data-i18n-en="Our guarantees">Наши гарантии</h3>
                         <ul class="guarantee-list">
                             <li>
                                 <i class="fas fa-check-circle"></i>
-                                <span>Ответ в течение 15 минут</span>
+                                <span data-i18n data-i18n-en="Response within 15 minutes">Ответ в течение 15 минут</span>
                             </li>
                             <li>
                                 <i class="fas fa-check-circle"></i>
-                                <span>Бесплатная консультация</span>
+                                <span data-i18n data-i18n-en="Free consultation">Бесплатная консультация</span>
                             </li>
                             <li>
                                 <i class="fas fa-check-circle"></i>
-                                <span>Индивидуальный подход</span>
+                                <span data-i18n data-i18n-en="Personalized approach">Индивидуальный подход</span>
                             </li>
                             <li>
                                 <i class="fas fa-check-circle"></i>
-                                <span>Прозрачные цены</span>
+                                <span data-i18n data-i18n-en="Transparent pricing">Прозрачные цены</span>
                             </li>
                         </ul>
                     </div>
@@ -340,39 +341,39 @@
                 <div class="footer-col footer-about">
                     <a href="index.html" class="footer-logo">
                         <i class="fas fa-truck-fast"></i>
-                        <span>ЛогистикПро</span>
+                        <span data-i18n data-i18n-en="LogistikPro">ЛогистикПро</span>
                     </a>
-                    <p>Надёжный партнёр в сфере грузоперевозок. Более 10 лет успешной работы на рынке логистических услуг.</p>
+                    <p data-i18n data-i18n-en="A reliable partner in freight transportation. Over 10 years of success in the logistics market.">Надёжный партнёр в сфере грузоперевозок. Более 10 лет успешной работы на рынке логистических услуг.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <span aria-label="VKontakte"><i class="fab fa-vk"></i></span>
+                        <span aria-label="Telegram"><i class="fab fa-telegram"></i></span>
+                        <span aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></span>
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Услуги</h4>
+                    <h4 data-i18n data-i18n-en="Services">Услуги</h4>
                     <ul>
-                        <li><a href="services/cargo.html">Грузоперевозки</a></li>
-                        <li><a href="services/express.html">Экспресс-доставка</a></li>
-                        <li><a href="services/regional.html">Междугородняя доставка</a></li>
-                        <li><a href="services/corporate.html">Корпоративным клиентам</a></li>
+                        <li><a href="services/cargo.html" data-i18n data-i18n-en="Freight transport">Грузоперевозки</a></li>
+                        <li><a href="services/express.html" data-i18n data-i18n-en="Express delivery">Экспресс-доставка</a></li>
+                        <li><a href="services/regional.html" data-i18n data-i18n-en="Intercity delivery">Междугородняя доставка</a></li>
+                        <li><a href="services/corporate.html" data-i18n data-i18n-en="For corporate clients">Корпоративным клиентам</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Компания</h4>
+                    <h4 data-i18n data-i18n-en="Company">Компания</h4>
                     <ul>
-                        <li><a href="#">О компании</a></li>
-                        <li><a href="calculator.html">Калькулятор</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
-                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#" data-i18n data-i18n-en="About us">О компании</a></li>
+                        <li><a href="calculator.html" data-i18n data-i18n-en="Calculator">Калькулятор</a></li>
+                        <li><a href="contacts.html" data-i18n data-i18n-en="Contacts">Контакты</a></li>
+                        <li><a href="#" data-i18n data-i18n-en="Careers">Вакансии</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Контакты</h4>
+                    <h4 data-i18n data-i18n-en="Contacts">Контакты</h4>
                     <ul class="footer-contacts">
                         <li>
                             <i class="fas fa-phone"></i>
-                            <a href="tel:+78001234567">8 (800) 123-45-67</a>
+                            <a href="tel:0">0 (000) 00-00-00</a>
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
@@ -380,17 +381,17 @@
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>г. Москва, ул. Логистическая, 1</span>
+                            <span data-i18n data-i18n-en="Moscow, Logisticheskaya St., 1">г. Москва, ул. Логистическая, 1</span>
                         </li>
                         <li>
                             <i class="fas fa-clock"></i>
-                            <span>Пн-Пт: 9:00-18:00</span>
+                            <span data-i18n data-i18n-en="Mon-Fri: 9:00-18:00">Пн-Пт: 9:00-18:00</span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 ЛогистикПро. Все права защищены.</p>
+                <p data-i18n data-i18n-en="© 2026 LogistikPro. All rights reserved.">&copy; 2026 ЛогистикПро. Все права защищены.</p>
             </div>
         </div>
     </footer>

@@ -1,6 +1,7 @@
 // ===== Calculator Logic =====
 
 document.addEventListener('DOMContentLoaded', function() {
+    const getLanguage = () => window.siteI18n?.getLanguage() || document.documentElement.lang || 'ru';
     const calculatorForm = document.getElementById('calculatorForm');
     const resultContent = document.getElementById('resultContent');
     const resultPlaceholder = document.querySelector('.result-placeholder');
@@ -56,23 +57,44 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // City names
     const cityNames = {
-        'moscow': 'Москва',
-        'spb': 'Санкт-Петербург',
-        'kazan': 'Казань',
-        'ekb': 'Екатеринбург',
-        'novosibirsk': 'Новосибирск',
-        'nnov': 'Нижний Новгород',
-        'samara': 'Самара',
-        'rostov': 'Ростов-на-Дону',
-        'krasnodar': 'Краснодар',
-        'voronezh': 'Воронеж'
+        ru: {
+            moscow: 'Москва',
+            spb: 'Санкт-Петербург',
+            kazan: 'Казань',
+            ekb: 'Екатеринбург',
+            novosibirsk: 'Новосибирск',
+            nnov: 'Нижний Новгород',
+            samara: 'Самара',
+            rostov: 'Ростов-на-Дону',
+            krasnodar: 'Краснодар',
+            voronezh: 'Воронеж'
+        },
+        en: {
+            moscow: 'Moscow',
+            spb: 'Saint Petersburg',
+            kazan: 'Kazan',
+            ekb: 'Yekaterinburg',
+            novosibirsk: 'Novosibirsk',
+            nnov: 'Nizhny Novgorod',
+            samara: 'Samara',
+            rostov: 'Rostov-on-Don',
+            krasnodar: 'Krasnodar',
+            voronezh: 'Voronezh'
+        }
     };
     
     // Service types
     const serviceTypes = {
-        'standard': { name: 'Стандартная', days: '3-5 дней', multiplier: 1 },
-        'express': { name: 'Экспресс', days: '1-2 дня', multiplier: 1.5 },
-        'economy': { name: 'Эконом', days: '5-7 дней', multiplier: 0.8 }
+        ru: {
+            standard: { name: 'Стандартная', days: '3-5 дней', multiplier: 1 },
+            express: { name: 'Экспресс', days: '1-2 дня', multiplier: 1.5 },
+            economy: { name: 'Эконом', days: '5-7 дней', multiplier: 0.8 }
+        },
+        en: {
+            standard: { name: 'Standard', days: '3-5 days', multiplier: 1 },
+            express: { name: 'Express', days: '1-2 days', multiplier: 1.5 },
+            economy: { name: 'Economy', days: '5-7 days', multiplier: 0.8 }
+        }
     };
     
     // Calculate volume from dimensions
@@ -130,7 +152,8 @@ document.addEventListener('DOMContentLoaded', function() {
         basePrice = Math.max(basePrice, 1500);
         
         // Service type multiplier
-        const serviceMultiplier = serviceTypes[formData.serviceType].multiplier;
+        const language = getLanguage();
+        const serviceMultiplier = serviceTypes[language]?.[formData.serviceType]?.multiplier || serviceTypes.ru[formData.serviceType].multiplier;
         basePrice = basePrice * serviceMultiplier;
         
         // Additional services
@@ -140,25 +163,37 @@ document.addEventListener('DOMContentLoaded', function() {
         if (formData.insurance) {
             const insuranceCost = basePrice * 0.02;
             extrasPrice += insuranceCost;
-            extras.push({ name: 'Страхование груза', price: insuranceCost });
+            extras.push({
+                name: getLanguage() === 'en' ? 'Cargo insurance' : 'Страхование груза',
+                price: insuranceCost
+            });
         }
         
         if (formData.packaging) {
             const packagingCost = Math.max(500, weight * 10);
             extrasPrice += packagingCost;
-            extras.push({ name: 'Упаковка', price: packagingCost });
+            extras.push({
+                name: getLanguage() === 'en' ? 'Packaging' : 'Упаковка',
+                price: packagingCost
+            });
         }
         
         if (formData.loading) {
             const loadingCost = Math.max(1000, weight * 5);
             extrasPrice += loadingCost;
-            extras.push({ name: 'Погрузка/разгрузка', price: loadingCost });
+            extras.push({
+                name: getLanguage() === 'en' ? 'Loading/unloading' : 'Погрузка/разгрузка',
+                price: loadingCost
+            });
         }
         
         if (formData.doorToDoor) {
             const doorCost = 800 + (distance / 100) * 50;
             extrasPrice += doorCost;
-            extras.push({ name: 'От двери до двери', price: doorCost });
+            extras.push({
+                name: getLanguage() === 'en' ? 'Door-to-door' : 'От двери до двери',
+                price: doorCost
+            });
         }
         
         return {
@@ -170,13 +205,14 @@ document.addEventListener('DOMContentLoaded', function() {
             extrasPrice: Math.round(extrasPrice),
             totalPrice: Math.round(basePrice + extrasPrice),
             extras,
-            service: serviceTypes[formData.serviceType]
+            service: serviceTypes[getLanguage()]?.[formData.serviceType] || serviceTypes.ru[formData.serviceType]
         };
     }
     
     // Format price
     function formatPrice(price) {
-        return new Intl.NumberFormat('ru-RU').format(price) + ' ₽';
+        const locale = getLanguage() === 'en' ? 'en-US' : 'ru-RU';
+        return new Intl.NumberFormat(locale).format(price) + ' ₽';
     }
     
     // Display results
@@ -186,16 +222,24 @@ document.addEventListener('DOMContentLoaded', function() {
         resultContent.style.display = 'block';
         
         // Date
-        document.getElementById('resultDate').textContent = new Date().toLocaleDateString('ru-RU');
+        const dateLocale = getLanguage() === 'en' ? 'en-US' : 'ru-RU';
+        document.getElementById('resultDate').textContent = new Date().toLocaleDateString(dateLocale);
         
         // Route
-        document.getElementById('resultFrom').textContent = cityNames[formData.cityFrom];
-        document.getElementById('resultTo').textContent = cityNames[formData.cityTo];
-        document.getElementById('resultDistance').textContent = calculation.distance + ' км';
+        const language = getLanguage();
+        document.getElementById('resultFrom').textContent = cityNames[language]?.[formData.cityFrom] || cityNames.ru[formData.cityFrom];
+        document.getElementById('resultTo').textContent = cityNames[language]?.[formData.cityTo] || cityNames.ru[formData.cityTo];
+        document.getElementById('resultDistance').textContent = language === 'en'
+            ? `${calculation.distance} km`
+            : `${calculation.distance} км`;
         
         // Details
-        document.getElementById('resultWeight').textContent = calculation.weight + ' кг';
-        document.getElementById('resultVolume').textContent = calculation.volume + ' м³';
+        document.getElementById('resultWeight').textContent = language === 'en'
+            ? `${calculation.weight} kg`
+            : `${calculation.weight} кг`;
+        document.getElementById('resultVolume').textContent = language === 'en'
+            ? `${calculation.volume} m³`
+            : `${calculation.volume} м³`;
         document.getElementById('resultService').textContent = calculation.service.name;
         document.getElementById('resultDays').textContent = calculation.service.days;
         
@@ -228,6 +272,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    const language = window.siteI18n?.getLanguage() || document.documentElement.lang || 'ru';
+    const translations = {
+        ru: {
+            cityMismatch: 'Города отправки и доставки должны различаться',
+            managerNotice: 'Свяжитесь с менеджером по телефону 0 (000) 00-00-00.'
+        },
+        en: {
+            cityMismatch: 'The origin and destination cities must be different',
+            managerNotice: 'Please contact our manager by phone: 0 (000) 00-00-00.'
+        }
+    };
+
+    function t(key) {
+        return translations[language]?.[key] || translations.ru[key] || key;
+    }
+
     // Form submission
     calculatorForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -246,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validation
         if (formData.cityFrom === formData.cityTo) {
-            alert('Города отправки и доставки должны различаться');
+            alert(t('cityMismatch'));
             return;
         }
         
@@ -256,6 +316,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Ask manager button
     document.getElementById('askManager')?.addEventListener('click', function() {
-        window.open('https://wa.me/78001234567?text=Здравствуйте! Хочу уточнить стоимость доставки.', '_blank');
+        alert(t('managerNotice'));
     });
 });

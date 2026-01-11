@@ -267,6 +267,21 @@ h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
     gap: 20px;
 }
 
+.lang-toggle {
+    padding: 8px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius);
+    font-weight: 600;
+    color: var(--gray-700);
+    background: var(--white);
+    transition: var(--transition);
+}
+
+.lang-toggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
 .phone-link {
     display: flex;
     align-items: center;
@@ -818,7 +833,8 @@ section {
     gap: 12px;
 }
 
-.social-links a {
+.social-links a,
+.social-links span {
     width: 40px;
     height: 40px;
     display: flex;
@@ -833,6 +849,10 @@ section {
 .social-links a:hover {
     background: var(--primary);
     color: var(--white);
+}
+
+.social-links span {
+    cursor: default;
 }
 
 .footer-col h4 {

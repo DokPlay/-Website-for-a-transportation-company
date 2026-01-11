@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Экспресс-доставка - ЛогистикПро</title>
-    <meta name="description" content="Срочная экспресс-доставка документов и грузов. Гарантия доставки в кратчайшие сроки по всей России.">
+    <title data-i18n data-i18n-en="Express delivery - LogistikPro">Экспресс-доставка - ЛогистикПро</title>
+    <meta name="description" data-i18n-content data-i18n-content-en="Urgent express delivery of documents and cargo. Guaranteed delivery in the shortest time across Russia." content="Срочная экспресс-доставка документов и грузов. Гарантия доставки в кратчайшие сроки по всей России.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
@@ -17,32 +17,33 @@
             <div class="header-content">
                 <a href="../index.html" class="logo">
                     <i class="fas fa-truck-fast"></i>
-                    <span>ЛогистикПро</span>
+                    <span data-i18n data-i18n-en="LogistikPro">ЛогистикПро</span>
                 </a>
                 <nav class="nav" id="nav">
                     <ul class="nav-list">
-                        <li><a href="../index.html">Главная</a></li>
+                        <li><a href="../index.html" data-i18n data-i18n-en="Home">Главная</a></li>
                         <li class="dropdown">
-                            <a href="#" class="active">Услуги <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="active" data-i18n-html data-i18n-html-en="Services <i class=&quot;fas fa-chevron-down&quot;></i>">Услуги <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="cargo.html">Грузоперевозки</a></li>
-                                <li><a href="express.html" class="active">Экспресс-доставка</a></li>
-                                <li><a href="regional.html">Междугородняя доставка</a></li>
-                                <li><a href="corporate.html">Корпоративным клиентам</a></li>
+                                <li><a href="cargo.html" data-i18n data-i18n-en="Freight transport">Грузоперевозки</a></li>
+                                <li><a href="express.html" class="active" data-i18n data-i18n-en="Express delivery">Экспресс-доставка</a></li>
+                                <li><a href="regional.html" data-i18n data-i18n-en="Intercity delivery">Междугородняя доставка</a></li>
+                                <li><a href="corporate.html" data-i18n data-i18n-en="For corporate clients">Корпоративным клиентам</a></li>
                             </ul>
                         </li>
-                        <li><a href="../calculator.html">Калькулятор</a></li>
-                        <li><a href="../contacts.html">Контакты</a></li>
+                        <li><a href="../calculator.html" data-i18n data-i18n-en="Calculator">Калькулятор</a></li>
+                        <li><a href="../contacts.html" data-i18n data-i18n-en="Contacts">Контакты</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <a href="tel:+78001234567" class="phone-link">
+                    <a href="tel:0" class="phone-link">
                         <i class="fas fa-phone"></i>
-                        <span>8 (800) 123-45-67</span>
+                        <span data-i18n data-i18n-en="0 (000) 00-00-00">0 (000) 00-00-00</span>
                     </a>
-                    <a href="../request.html" class="btn btn-primary">Оставить заявку</a>
+                    <a href="../request.html" class="btn btn-primary" data-i18n data-i18n-en="Submit a request">Оставить заявку</a>
+                    <button class="lang-toggle" type="button" data-lang-toggle>EN</button>
                 </div>
-                <button class="burger" id="burger" aria-label="Меню">
+                <button class="burger" id="burger" aria-label="Меню" data-i18n-aria-label data-i18n-aria-label-en="Menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -55,14 +56,14 @@
     <section class="page-header">
         <div class="container">
             <div class="breadcrumb">
-                <a href="../index.html">Главная</a>
+                <a href="../index.html" data-i18n data-i18n-en="Home">Главная</a>
                 <span>/</span>
-                <a href="#">Услуги</a>
+                <a href="#" data-i18n data-i18n-en="Services">Услуги</a>
                 <span>/</span>
-                <span class="current">Экспресс-доставка</span>
+                <span class="current" data-i18n data-i18n-en="Express delivery">Экспресс-доставка</span>
             </div>
-            <h1>Экспресс-доставка</h1>
-            <p>Срочная доставка документов и грузов в кратчайшие сроки. Когда время — критический фактор.</p>
+            <h1 data-i18n data-i18n-en="Express delivery">Экспресс-доставка</h1>
+            <p data-i18n data-i18n-en="Urgent delivery of documents and cargo in the shortest time. When time is critical.">Срочная доставка документов и грузов в кратчайшие сроки. Когда время — критический фактор.</p>
         </div>
     </section>
 
@@ -72,11 +73,11 @@
             <div class="service-grid">
                 <div class="service-main">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&h=500&fit=crop" alt="Экспресс-доставка">
+                        <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&h=500&fit=crop" alt="Экспресс-доставка" data-i18n-alt data-i18n-alt-en="Express delivery">
                     </div>
                     
-                    <h2>Срочная доставка без компромиссов</h2>
-                    <p>Экспресс-доставка — это наш приоритетный сервис для случаев, когда время критически важно. Мы гарантируем доставку в согласованные сроки, обеспечивая максимальную скорость и надёжность.</p>
+                    <h2 data-i18n data-i18n-en="Urgent delivery without compromises">Срочная доставка без компромиссов</h2>
+                    <p data-i18n data-i18n-en="Express delivery is our priority service for cases when time is critical. We guarantee delivery within agreed timelines, ensuring maximum speed and reliability.">Экспресс-доставка — это наш приоритетный сервис для случаев, когда время критически важно. Мы гарантируем доставку в согласованные сроки, обеспечивая максимальную скорость и надёжность.</p>
                     
                     <h3>Варианты экспресс-доставки</h3>
                     <div class="service-types">
@@ -166,9 +167,9 @@
                         <div class="urgent-badge">Срочно!</div>
                         <h3>Нужна экспресс-доставка?</h3>
                         <p>Позвоните нам прямо сейчас — организуем забор в течение часа!</p>
-                        <a href="tel:+78001234567" class="btn btn-primary btn-full">
+                        <a href="tel:0" class="btn btn-primary btn-full">
                             <i class="fas fa-phone"></i>
-                            8 (800) 123-45-67
+                            0 (000) 00-00-00
                         </a>
                     </div>
                     
@@ -186,11 +187,11 @@
                         <ul>
                             <li>
                                 <i class="fas fa-phone"></i>
-                                <a href="tel:+78001234567">8 (800) 123-45-67</a>
+                                <a href="tel:0">0 (000) 00-00-00</a>
                             </li>
                             <li>
                                 <i class="fab fa-whatsapp"></i>
-                                <a href="https://wa.me/78001234567">WhatsApp</a>
+                                <span>WhatsApp</span>
                             </li>
                             <li>
                                 <i class="fas fa-envelope"></i>
@@ -222,9 +223,9 @@
                 </div>
                 <div class="cta-buttons">
                     <a href="../request.html" class="btn btn-white">Оставить заявку</a>
-                    <a href="tel:+78001234567" class="btn btn-outline-white">
+                    <a href="tel:0" class="btn btn-outline-white">
                         <i class="fas fa-phone"></i>
-                        8 (800) 123-45-67
+                        0 (000) 00-00-00
                     </a>
                 </div>
             </div>
@@ -242,9 +243,9 @@
                     </a>
                     <p>Надёжный партнёр в сфере грузоперевозок. Более 10 лет успешной работы на рынке логистических услуг.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <span aria-label="VKontakte"><i class="fab fa-vk"></i></span>
+                        <span aria-label="Telegram"><i class="fab fa-telegram"></i></span>
+                        <span aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></span>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -270,7 +271,7 @@
                     <ul class="footer-contacts">
                         <li>
                             <i class="fas fa-phone"></i>
-                            <a href="tel:+78001234567">8 (800) 123-45-67</a>
+                            <a href="tel:0">0 (000) 00-00-00</a>
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>

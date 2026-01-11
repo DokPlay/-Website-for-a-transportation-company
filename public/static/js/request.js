@@ -3,6 +3,60 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('detailedRequestForm');
     const successMessage = document.getElementById('successMessage');
+    const getLanguage = () => window.siteI18n?.getLanguage() || document.documentElement.lang || 'ru';
+    const translations = {
+        ru: {
+            requiredFields: 'Пожалуйста, заполните обязательные поля: имя и телефон',
+            agreePolicy: 'Пожалуйста, подтвердите согласие с политикой конфиденциальности',
+            requiredFieldsShort: 'Пожалуйста, заполните обязательные поля',
+            sent: '<i class="fas fa-check"></i> Отправлено!',
+            messageTitle: '🚚 *Новая заявка на грузоперевозку*',
+            contact: '👤 *Контакт:*',
+            company: '🏢 *Компания:*',
+            phone: '📞 *Телефон:*',
+            email: '📧 *Email:*',
+            contactMethod: '💬 *Связь:*',
+            route: '📍 *Маршрут:*',
+            from: 'Откуда:',
+            to: 'Куда:',
+            cargo: '📦 *Груз:*',
+            cargoType: 'Тип:',
+            weight: 'Вес:',
+            volume: 'Объём:',
+            places: 'Мест:',
+            cargoValue: 'Ценность:',
+            services: '⚙️ *Доп. услуги:*',
+            comment: '💬 *Комментарий:*'
+        },
+        en: {
+            requiredFields: 'Please fill in the required fields: name and phone',
+            agreePolicy: 'Please confirm the privacy policy agreement',
+            requiredFieldsShort: 'Please fill in the required fields',
+            sent: '<i class="fas fa-check"></i> Sent!',
+            messageTitle: '🚚 *New freight request*',
+            contact: '👤 *Contact:*',
+            company: '🏢 *Company:*',
+            phone: '📞 *Phone:*',
+            email: '📧 *Email:*',
+            contactMethod: '💬 *Contact method:*',
+            route: '📍 *Route:*',
+            from: 'From:',
+            to: 'To:',
+            cargo: '📦 *Cargo:*',
+            cargoType: 'Type:',
+            weight: 'Weight:',
+            volume: 'Volume:',
+            places: 'Packages:',
+            cargoValue: 'Declared value:',
+            services: '⚙️ *Additional services:*',
+            comment: '💬 *Comment:*'
+        }
+    };
+
+    function t(key) {
+        const language = getLanguage();
+        return translations[language]?.[key] || translations.ru[key] || key;
+    }
     
     if (!form) return;
     
@@ -11,31 +65,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if (phoneInput) {
         phoneInput.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
-            
-            if (value.length > 0) {
-                if (value[0] === '8') {
-                    value = '7' + value.slice(1);
-                }
-                if (value[0] !== '7') {
-                    value = '7' + value;
-                }
-            }
-            
+
             let formatted = '';
             if (value.length > 0) {
-                formatted = '+7';
+                formatted = '0';
             }
             if (value.length > 1) {
                 formatted += ' (' + value.slice(1, 4);
             }
             if (value.length > 4) {
-                formatted += ') ' + value.slice(4, 7);
+                formatted += ') ' + value.slice(4, 6);
             }
-            if (value.length > 7) {
-                formatted += '-' + value.slice(7, 9);
+            if (value.length > 6) {
+                formatted += '-' + value.slice(6, 8);
             }
-            if (value.length > 9) {
-                formatted += '-' + value.slice(9, 11);
+            if (value.length > 8) {
+                formatted += '-' + value.slice(8, 10);
             }
             
             e.target.value = formatted;
@@ -61,12 +106,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validate
         if (!data.name || !data.phone) {
-            alert('Пожалуйста, заполните обязательные поля: имя и телефон');
+            alert(t('requiredFields'));
             return;
         }
         
         if (!data.agree) {
-            alert('Пожалуйста, подтвердите согласие с политикой конфиденциальности');
+            alert(t('agreePolicy'));
             return;
         }
         
@@ -91,36 +136,36 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Format message for messengers
     function formatMessage(data) {
-        let message = `🚚 *Новая заявка на грузоперевозку*\n\n`;
+        let message = `${t('messageTitle')}\n\n`;
         
-        message += `👤 *Контакт:* ${data.name}\n`;
-        if (data.company) message += `🏢 *Компания:* ${data.company}\n`;
-        message += `📞 *Телефон:* ${data.phone}\n`;
-        if (data.email) message += `📧 *Email:* ${data.email}\n`;
-        message += `💬 *Связь:* ${getContactMethodName(data.contactMethod)}\n\n`;
+        message += `${t('contact')} ${data.name}\n`;
+        if (data.company) message += `${t('company')} ${data.company}\n`;
+        message += `${t('phone')} ${data.phone}\n`;
+        if (data.email) message += `${t('email')} ${data.email}\n`;
+        message += `${t('contactMethod')} ${getContactMethodName(data.contactMethod)}\n\n`;
         
         if (data.cityFrom || data.cityTo) {
-            message += `📍 *Маршрут:*\n`;
-            if (data.cityFrom) message += `  Откуда: ${data.cityFrom}`;
+            message += `${t('route')}\n`;
+            if (data.cityFrom) message += `  ${t('from')} ${data.cityFrom}`;
             if (data.addressFrom) message += ` (${data.addressFrom})`;
             message += `\n`;
-            if (data.cityTo) message += `  Куда: ${data.cityTo}`;
+            if (data.cityTo) message += `  ${t('to')} ${data.cityTo}`;
             if (data.addressTo) message += ` (${data.addressTo})`;
             message += `\n\n`;
         }
         
         if (data.cargoType || data.weight || data.volume) {
-            message += `📦 *Груз:*\n`;
-            if (data.cargoType) message += `  Тип: ${getCargoTypeName(data.cargoType)}\n`;
-            if (data.weight) message += `  Вес: ${data.weight} кг\n`;
-            if (data.volume) message += `  Объём: ${data.volume} м³\n`;
-            if (data.places) message += `  Мест: ${data.places}\n`;
-            if (data.cargoValue) message += `  Ценность: ${data.cargoValue} ₽\n`;
+            message += `${t('cargo')}\n`;
+            if (data.cargoType) message += `  ${t('cargoType')} ${getCargoTypeName(data.cargoType)}\n`;
+            if (data.weight) message += `  ${t('weight')} ${data.weight} кг\n`;
+            if (data.volume) message += `  ${t('volume')} ${data.volume} м³\n`;
+            if (data.places) message += `  ${t('places')} ${data.places}\n`;
+            if (data.cargoValue) message += `  ${t('cargoValue')} ${data.cargoValue} ₽\n`;
             message += `\n`;
         }
         
         if (data.services && data.services.length > 0) {
-            message += `⚙️ *Доп. услуги:*\n`;
+            message += `${t('services')}\n`;
             data.services.forEach(service => {
                 message += `  ✓ ${getServiceName(service)}\n`;
             });
@@ -128,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (data.comment) {
-            message += `💬 *Комментарий:*\n${data.comment}\n`;
+            message += `${t('comment')}\n${data.comment}\n`;
         }
         
         return message;
@@ -136,42 +181,91 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function getContactMethodName(method) {
         const methods = {
-            'phone': 'Телефон',
-            'whatsapp': 'WhatsApp',
-            'telegram': 'Telegram',
-            'email': 'Email'
+            ru: {
+                phone: 'Телефон',
+                whatsapp: 'WhatsApp',
+                telegram: 'Telegram',
+                email: 'Email'
+            },
+            en: {
+                phone: 'Phone',
+                whatsapp: 'WhatsApp',
+                telegram: 'Telegram',
+                email: 'Email'
+            }
         };
-        return methods[method] || method;
+        const language = getLanguage();
+        return methods[language]?.[method] || methods.ru[method] || method;
     }
     
     function getCargoTypeName(type) {
         const types = {
-            'documents': 'Документы',
-            'parcels': 'Посылки/коробки',
-            'pallets': 'Паллеты',
-            'equipment': 'Оборудование',
-            'furniture': 'Мебель',
-            'fragile': 'Хрупкие грузы',
-            'oversized': 'Негабаритные грузы',
-            'other': 'Другое'
+            ru: {
+                documents: 'Документы',
+                parcels: 'Посылки/коробки',
+                pallets: 'Паллеты',
+                equipment: 'Оборудование',
+                furniture: 'Мебель',
+                fragile: 'Хрупкие грузы',
+                oversized: 'Негабаритные грузы',
+                other: 'Другое'
+            },
+            en: {
+                documents: 'Documents',
+                parcels: 'Parcels/boxes',
+                pallets: 'Pallets',
+                equipment: 'Equipment',
+                furniture: 'Furniture',
+                fragile: 'Fragile goods',
+                oversized: 'Oversized cargo',
+                other: 'Other'
+            }
         };
-        return types[type] || type;
+        const language = getLanguage();
+        return types[language]?.[type] || types.ru[type] || type;
     }
     
     function getServiceName(service) {
         const services = {
-            'express': 'Экспресс-доставка',
-            'insurance': 'Страхование груза',
-            'packaging': 'Упаковка',
-            'loading': 'Погрузка/разгрузка'
+            ru: {
+                express: 'Экспресс-доставка',
+                insurance: 'Страхование груза',
+                packaging: 'Упаковка',
+                loading: 'Погрузка/разгрузка'
+            },
+            en: {
+                express: 'Express delivery',
+                insurance: 'Cargo insurance',
+                packaging: 'Packaging',
+                loading: 'Loading/unloading'
+            }
         };
-        return services[service] || service;
+        const language = getLanguage();
+        return services[language]?.[service] || services.ru[service] || service;
     }
 });
 
 // Handle home page request form (if exists)
 document.addEventListener('DOMContentLoaded', function() {
     const quickForm = document.getElementById('requestForm');
+    const getLanguage = () => window.siteI18n?.getLanguage() || document.documentElement.lang || 'ru';
+    const translations = {
+        ru: {
+            requiredFieldsShort: 'Пожалуйста, заполните обязательные поля',
+            agreePolicy: 'Пожалуйста, подтвердите согласие с политикой конфиденциальности',
+            sent: '<i class="fas fa-check"></i> Отправлено!'
+        },
+        en: {
+            requiredFieldsShort: 'Please fill in the required fields',
+            agreePolicy: 'Please confirm the privacy policy agreement',
+            sent: '<i class="fas fa-check"></i> Sent!'
+        }
+    };
+
+    function t(key) {
+        const language = getLanguage();
+        return translations[language]?.[key] || translations.ru[key] || key;
+    }
     
     if (quickForm) {
         quickForm.addEventListener('submit', function(e) {
@@ -184,19 +278,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const agree = document.querySelector('input[name="agree"]')?.checked;
             
             if (!name || !phone) {
-                alert('Пожалуйста, заполните обязательные поля');
+                alert(t('requiredFieldsShort'));
                 return;
             }
             
             if (!agree) {
-                alert('Пожалуйста, подтвердите согласие с политикой конфиденциальности');
+                alert(t('agreePolicy'));
                 return;
             }
             
             // Success feedback
             const submitBtn = quickForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Отправлено!';
+            submitBtn.innerHTML = t('sent');
             submitBtn.disabled = true;
             
             setTimeout(() => {
