@@ -6,8 +6,8 @@ https://929f60f1.website-for-a-transportation-company.pages.dev/static/
 ## 📋 Project Overview
 
 Modern, responsive website for the LogisticPro transportation company. A full-featured prototype with a delivery cost calculator, request form, and service information. Deployed on Cloudflare Pages using the Hono framework.
+![Uploading Снимок экрана 2026-01-11 112029.png…]()
 
-<img width="1492" height="1048" alt="Screenshot 2026-01-11 092558" src="https://github.com/user-attachments/assets/bf8efa3f-fe3c-4e34-9276-04cc8c3c6843" />
 
 
 ## ✅ Implemented Features
